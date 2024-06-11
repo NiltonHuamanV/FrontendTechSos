@@ -43,7 +43,7 @@ export class ListarmarcaComponent implements OnInit{
     });
   }
 
-
+  //esto
   cargarMarcas(): void {
     this.mS.list().subscribe((marcas: Marca[]) => {
       this.marcas = marcas;
