@@ -5,7 +5,7 @@
   </button>
   <button mat-button class="district-button" [matMenuTriggerFor]="menuDistrict">District</button>
   <button mat-button class="brand-button" [matMenuTriggerFor]="menuBrand">Marca</button>
-  <button mat-button class="another-button">Otro Botón</button>
+  <button mat-button class="user-button" [matMenuTriggerFor]="menuUser">Usuario</button>
 </mat-toolbar>
 
 <mat-menu #menuDistrict="matMenu">
@@ -15,6 +15,11 @@
 
 <mat-menu #menuBrand="matMenu">
   <button mat-menu-item routerLink="/brand">Listar</button>
+</mat-menu>
+
+<mat-menu #menuUser="matMenu">
+  <button mat-menu-item routerLink="/user">Listar</button>
+  <button mat-menu-item routerLink="/user/registrar">Registrar</button>
 </mat-menu>
 
 <router-outlet></router-outlet>
