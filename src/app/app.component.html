@@ -4,8 +4,9 @@
     <span class="techsos-text">TechSos</span>
   </button>
   <button mat-button class="district-button" [matMenuTriggerFor]="menuDistrict">District</button>
-  <button mat-button class="brand-button" [matMenuTriggerFor]="menuBrand">Marca</button>
-  <button mat-button class="another-button">Otro Botón</button>
+  <button mat-button class="marca-button" [matMenuTriggerFor]="menuBrand">Marca</button>
+  <button mat-button class="modelo-button" [matMenuTriggerFor]="menuModelo">Modelo</button>
+  <button mat-button class="dispositivo-button" [matMenuTriggerFor]="menuDispositivo">Dispositivo</button>
 </mat-toolbar>
 
 <mat-menu #menuDistrict="matMenu">
@@ -14,7 +15,16 @@
 </mat-menu>
 
 <mat-menu #menuBrand="matMenu">
-  <button mat-menu-item routerLink="/brand">Listar</button>
+  <button mat-menu-item routerLink="/marca">Listar</button>
+  <button mat-menu-item routerLink="/marca/insertarmarca">Registrar</button>
+</mat-menu>
+<mat-menu #menuModelo="matMenu">
+  <button mat-menu-item routerLink="/modelo">Listar</button>
+  <button mat-menu-item routerLink="/modelo/insertarmodelo">Registrar</button>
+</mat-menu>
+<mat-menu #menuDispositivo="matMenu">
+  <button mat-menu-item routerLink="/dispositivo">Listar</button>
+  <button mat-menu-item routerLink="/dispositivo/insertardispositivo">Registrar</button>
 </mat-menu>
 
 <router-outlet></router-outlet>
