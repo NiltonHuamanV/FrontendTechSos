@@ -10,7 +10,7 @@ import { ModeloService } from '../../../services/modelo.service';
   styleUrl: './listarmodelo.component.css'
 })
 export class ListarmodeloComponent {
-  displayedColumns: string[] = ['codigo', 'modelo']
+  displayedColumns: string[] = ['codigo', 'modelo', 'marca']
   datasource : MatTableDataSource<Modelo>= new MatTableDataSource()
   constructor(private mS:ModeloService){}
 
@@ -18,5 +18,8 @@ export class ListarmodeloComponent {
     this.mS.list().subscribe(data=> {
       this.datasource = new MatTableDataSource(data)
     })
+    this.mS.getList().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
+    });
 }
 }

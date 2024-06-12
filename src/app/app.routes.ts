@@ -4,6 +4,7 @@ import { CreaeditadistrictComponent } from './components/district/creaeditadistr
 import { MarcaComponent } from './components/marca/marca.component';
 import { CreaeditamarcaComponent } from './components/marca/creaeditamarca/creaeditamarca.component';
 import { ModeloComponent } from './components/modelo/modelo.component';
+import { CreaeditamodeloComponent } from './components/modelo/creaeditamodelo/creaeditamodelo.component';
 
 export const routes: Routes = [
     {
@@ -27,7 +28,7 @@ export const routes: Routes = [
         path:"modelo", component: ModeloComponent,
         children:[
             {
-                path:'insertarmodelo', component:CreaeditamarcaComponent
+                path:'insertarmodelo', component:CreaeditamodeloComponent
             }
         ]
     },
