@@ -6,6 +6,7 @@ import { CreaeditamarcaComponent } from './components/marca/creaeditamarca/creae
 import { ModeloComponent } from './components/modelo/modelo.component';
 import { CreaeditamodeloComponent } from './components/modelo/creaeditamodelo/creaeditamodelo.component';
 import { DispositivoComponent } from './components/dispositivo/dispositivo.component';
+import { CreaeditadispositivoComponent } from './components/dispositivo/creaeditadispositivo/creaeditadispositivo.component';
 
 export const routes: Routes = [
     {
@@ -37,7 +38,7 @@ export const routes: Routes = [
         path:"dispositivo", component: DispositivoComponent,
         children:[
             {
-                path:'insertardispositivo', component:CreaeditamodeloComponent,
+                path:'insertardispositivo', component:CreaeditadispositivoComponent,
             }
         ]
     },

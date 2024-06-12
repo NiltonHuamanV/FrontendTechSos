@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { DispositivoService } from '../../../services/dispositivo.service';
 import { Dispositivo } from '../../../models/dispositivo';
@@ -9,7 +9,7 @@ import { Dispositivo } from '../../../models/dispositivo';
   templateUrl: './listardispositivo.component.html',
   styleUrl: './listardispositivo.component.css'
 })
-export class ListardispositivoComponent {
+export class ListardispositivoComponent implements OnInit {
   displayedColumns: string[] = ['codigo', 'modelo', 'observaciones']
   datasource : MatTableDataSource<Dispositivo>= new MatTableDataSource()
   constructor(private dS:DispositivoService){}
