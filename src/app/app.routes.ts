@@ -3,6 +3,10 @@ import { DistrictComponent } from './components/district/district.component';
 import { CreaeditadistrictComponent } from './components/district/creaeditadistrict/creaeditadistrict.component';
 import { MarcaComponent } from './components/marca/marca.component';
 import { CreaeditamarcaComponent } from './components/marca/creaeditamarca/creaeditamarca.component';
+import { ModeloComponent } from './components/modelo/modelo.component';
+import { CreaeditamodeloComponent } from './components/modelo/creaeditamodelo/creaeditamodelo.component';
+import { DispositivoComponent } from './components/dispositivo/dispositivo.component';
+import { CreaeditadispositivoComponent } from './components/dispositivo/creaeditadispositivo/creaeditadispositivo.component';
 
 export const routes: Routes = [
     {
@@ -16,9 +20,26 @@ export const routes: Routes = [
     {
         path:"marca", component: MarcaComponent,
         children:[
-          { path:'insertarmarca', component:CreaeditamarcaComponent },
-          { path: 'ediciones/:id', component: CreaeditamarcaComponent },
+            {
+                path:'insertarmarca', component:CreaeditamarcaComponent
+            }
+        ]
+    },
 
-      ]
-    }
+    {
+        path:"modelo", component: ModeloComponent,
+        children:[
+            {
+                path:'insertarmodelo', component:CreaeditamodeloComponent
+            }
+        ]
+    },
+    {
+        path:"dispositivo", component: DispositivoComponent,
+        children:[
+            {
+                path:'insertardispositivo', component:CreaeditadispositivoComponent,
+            }
+        ]
+    },
 ];
