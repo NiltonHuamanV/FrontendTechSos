@@ -1,5 +1,5 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button routerLink="/" class="techsos-button">
+<mat-toolbar color="primary" *ngIf="verificar()">
+  <button mat-icon-button [routerLink]="['/homes']" class="techsos-button">
     <mat-icon aria-hidden="true" aria-label="Example home icon">home</mat-icon>
     <span class="techsos-text">TechSos</span>
   </button>
@@ -15,6 +15,17 @@
 
 <mat-menu #menuBrand="matMenu">
   <button mat-menu-item routerLink="/brand">Listar</button>
+</mat-menu>
+
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
 </mat-menu>
 
 <router-outlet></router-outlet>
