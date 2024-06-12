@@ -29,4 +29,15 @@ export class MarcaService {
   getlist(){
     return this.listacambio.asObservable();
   }
+
+
+  listId(id: number) {
+    return this.http.get<Marca>(`${this.url}/${id}`);
+  }
+  update(m: Marca) {
+    return this.http.put(this.url, m);
+  }
+  eliminar(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }
