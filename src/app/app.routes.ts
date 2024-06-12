@@ -29,9 +29,9 @@ export const routes: Routes = [
     {
         path:"modelo", component: ModeloComponent,
         children:[
-            {
-                path:'insertarmodelo', component:CreaeditamodeloComponent
-            }
+            { path:'insertarmodelo', component: CreaeditamodeloComponent  },
+            { path: 'ediciones/:id', component: CreaeditamodeloComponent },
+
         ]
     },
     {
@@ -42,4 +42,12 @@ export const routes: Routes = [
             }
         ]
     },
+    {
+      path:"taller", component: DispositivoComponent,
+      children:[
+          {
+              path:'insertartaller', component:CreaeditadispositivoComponent,
+          }
+      ]
+  }
 ];
