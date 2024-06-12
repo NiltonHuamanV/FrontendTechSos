@@ -1,0 +1,60 @@
+<p>listarreparacion works!</p>
+<div class="container">
+    <br/>
+    <h2 style="text-align: center">Lista de reparaciones</h2>
+   
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.idReparacion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.FechaInicio }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>Fecha Fin</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.FechaFin }}
+        </td>
+      </ng-container>
+  
+        
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>Problema</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.Problema }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.Estado }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>Costo</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.movie.Costo }}
+        </td>
+      </ng-container>
+   
+      
+     
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    showFirstLastButtons
+  ></mat-paginator>
+    </div>
+  
