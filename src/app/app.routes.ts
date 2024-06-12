@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { DistrictComponent } from './components/district/district.component';
 import { CreaeditadistrictComponent } from './components/district/creaeditadistrict/creaeditadistrict.component';
 import { MarcaComponent } from './components/marca/marca.component';
-import { ReparacionComponent } from './components/reparacion/reparacion.component';
 
 export const routes: Routes = [
     {
@@ -14,9 +13,28 @@ export const routes: Routes = [
         ]
     },
     {
-        path:"brand", component: MarcaComponent
+        path:"marca", component: MarcaComponent,
+        children:[
+            {
+                path:'insertarmarca', component:CreaeditamarcaComponent
+            }
+        ]
+    },
+
+    {
+        path:"modelo", component: ModeloComponent,
+        children:[
+            {
+                path:'insertarmodelo', component:CreaeditamodeloComponent
+            }
+        ]
     },
     {
-        path:"reparacion", component: ReparacionComponent
-    }
+        path:"dispositivo", component: DispositivoComponent,
+        children:[
+            {
+                path:'insertardispositivo', component:CreaeditadispositivoComponent,
+            }
+        ]
+    },
 ];

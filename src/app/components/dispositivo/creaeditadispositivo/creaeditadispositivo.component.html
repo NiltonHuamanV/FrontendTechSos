@@ -1,0 +1,27 @@
+<div>
+    <form [formGroup] = "form" (submit)="aceptar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Dispositivo</mat-label>
+        <mat-select formControlName="modelo">
+          <mat-option *ngFor="let c of listaModelos" [value]="c.idmodelo">
+            {{c.nombre}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('modelo')?.hasError('required')"
+        >El dispositivo es obligatorio.</mat-error>       
+      </mat-form-field>
+
+      <br/>
+      <mat-form-field class="example-full-width">
+        <mat-label>Observaciones:</mat-label>
+        <textarea  matInput placeholder="Resumen" formControlName="observaciones"></textarea>
+        <mat-error *ngIf="form.get('observaciones')?.hasError('required')"
+        >Las observaciones son obligatorias.</mat-error>
+      </mat-form-field>
+      <br />
+        <button mat-raised-button color="accent"> Aceptar</button>
+           
+    </form>
+    </div>
+    
+
