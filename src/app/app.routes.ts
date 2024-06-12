@@ -2,6 +2,12 @@ import { Routes } from '@angular/router';
 import { DistrictComponent } from './components/district/district.component';
 import { CreaeditadistrictComponent } from './components/district/creaeditadistrict/creaeditadistrict.component';
 import { MarcaComponent } from './components/marca/marca.component';
+import { CreaeditamarcaComponent } from './components/marca/creaeditamarca/creaeditamarca.component';
+import { ModeloComponent } from './components/modelo/modelo.component';
+import { CreaeditamodeloComponent } from './components/modelo/creaeditamodelo/creaeditamodelo.component';
+import { DispositivoComponent } from './components/dispositivo/dispositivo.component';
+import { CreaeditadispositivoComponent } from './components/dispositivo/creaeditadispositivo/creaeditadispositivo.component';
+import { ReparacionComponent } from './components/reparacion/reparacion.component';
 
 export const routes: Routes = [
     {
@@ -16,7 +22,7 @@ export const routes: Routes = [
         path:"marca", component: MarcaComponent,
         children:[
             {
-                path:'insertarmarca', component:CreaeditamarcaComponent
+                path:'insertarmarca', component: CreaeditamarcaComponent
             }
         ]
     },
@@ -37,4 +43,7 @@ export const routes: Routes = [
             }
         ]
     },
+    {
+        path:"reparacion", component: ReparacionComponent
+    }
 ];

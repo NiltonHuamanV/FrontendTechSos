@@ -16,11 +16,19 @@
 </mat-menu>
 
 <mat-menu #menuBrand="matMenu">
-  <button mat-menu-item routerLink="/brand">Listar</button>
+  <button mat-menu-item routerLink="/marca">Listar</button>
 </mat-menu>
 
 <mat-menu #menuReparacion="matMenu">
   <button mat-menu-item routerLink="/reparacion">Listar</button>
 </mat-menu>
+
+<mat-menu #menuModelo="matMenu">
+  <button mat-menu-item routerLink="/modelo">Listar</button>
+  <button mat-menu-item routerLink="/modelo/insertarmodelo">Registrar</button>
+</mat-menu>
+<mat-menu #menuDispositivo="matMenu">
+  <button mat-menu-item routerLink="/dispositivo">Listar</button>
+  <button mat-menu-item routerLink="/dispositivo/insertardispositivo">Registrar</button>
 
 <router-outlet></router-outlet>
