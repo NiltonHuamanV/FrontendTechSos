@@ -1,1 +1,15 @@
 <p>creaeditamarca works!</p>
+<div>
+    <form [formGroup] = "form" (submit)="aceptar()">
+      <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca">
+        <mat-error *ngIf="form.get('marca')?.hasError('required')"
+        >La marca es obligatoria.</mat-error>
+      </mat-form-field>
+          <br/>
+        <button mat-raised-button color="accent"> Aceptar</button>
+           
+    </form>
+    </div>
+    
