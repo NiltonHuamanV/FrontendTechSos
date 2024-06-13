@@ -5,6 +5,9 @@ import { MarcaService } from '../../../services/marca.service';
 import { RouterLink } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-listarmarca',
@@ -13,7 +16,10 @@ import { CommonModule } from '@angular/common';
     MatTableModule,
     RouterLink,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule
   ],
   templateUrl: './listarmarca.component.html',
   styleUrl: './listarmarca.component.css'
@@ -48,6 +54,14 @@ export class ListarmarcaComponent implements OnInit{
     this.mS.list().subscribe((marcas: Marca[]) => {
       this.marcas = marcas;
       this.dataSource = new MatTableDataSource(marcas);
+    });
+  }
+
+  eliminar(id: number) {
+    this.mS.eliminar(id).subscribe((data) => {
+      this.mS.list().subscribe((data) => {
+        this.mS.setlist(data);
+      });
     });
   }
 
