@@ -25,4 +25,11 @@ export class ModeloService {
   getList() {
     return this.listaCambio.asObservable();
   }
+  listId(id: number) {
+    return this.httpClient.get<Modelo>(`${this.url}/${id}`);
+  }
+
+  update(m: Modelo) {
+    return this.httpClient.put(this.url, m);
+  }
 }
