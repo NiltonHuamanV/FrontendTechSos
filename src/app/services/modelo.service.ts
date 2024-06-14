@@ -32,4 +32,8 @@ export class ModeloService {
   update(m: Modelo) {
     return this.httpClient.put(this.url, m);
   }
+  
+  delete(id: number) {
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 }
