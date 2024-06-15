@@ -33,5 +33,8 @@ export class DispositivoService {
   update(d: Dispositivo) {
     return this.httpClient.put(this.url, d);
   }
+  delete(id: number) {
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 
 }
