@@ -12,13 +12,20 @@
       </ng-container>
 
       <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>Dispositivo</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.dispositivoTaller.idDispositivoTaller }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c3">
         <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
         <td mat-cell *matCellDef="let element">
           {{ element.FechaInicio }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="c3">
+      <ng-container matColumnDef="c4">
         <th mat-header-cell *matHeaderCellDef>Fecha Fin</th>
         <td mat-cell *matCellDef="let element">
           {{ element.FechaFin }}
@@ -26,21 +33,21 @@
       </ng-container>
   
         
-      <ng-container matColumnDef="c4">
+      <ng-container matColumnDef="c5">
         <th mat-header-cell *matHeaderCellDef>Problema</th>
         <td mat-cell *matCellDef="let element">
           {{ element.Problema }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="c5">
+      <ng-container matColumnDef="c6">
         <th mat-header-cell *matHeaderCellDef>Estado</th>
         <td mat-cell *matCellDef="let element">
           {{ element.Estado }}
         </td>
       </ng-container>
   
-      <ng-container matColumnDef="c6">
+      <ng-container matColumnDef="c7">
         <th mat-header-cell *matHeaderCellDef>Costo</th>
         <td mat-cell *matCellDef="let element">
           {{ element.Costo }}

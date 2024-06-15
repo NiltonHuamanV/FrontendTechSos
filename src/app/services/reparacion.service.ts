@@ -24,4 +24,14 @@ export class ReparacionService {
   getList() {
     return this.listaCambio.asObservable();
   }
+
+  listId(id: number) {
+    return this.httpClient.get<Reparacion>(`${this.url}/${id}`);
+  }
+  update(c: Reparacion) {
+    return this.httpClient.put(this.url, c);
+  }
+  eliminar(id: number) {
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 }

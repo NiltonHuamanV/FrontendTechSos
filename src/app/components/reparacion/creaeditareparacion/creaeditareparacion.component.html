@@ -1,1 +1,48 @@
 <p>creaeditareparacion works!</p>
+<div>
+    <form [formGroup] = "form" (submit)="aceptar()">
+      <!--mat-form-field>
+        <mat-label>Dispositivo</mat-label>
+        <input matInput formControlName="dispositivotaller">
+        <mat-error *ngIf="form.get('dispositivotaller')?.hasError('required')"
+        >El dispositivo es obligatorio.</mat-error>  
+      </!--mat-form-field-->
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Dispositivo</mat-label>
+        <mat-select formControlName="dispositivo">
+          <mat-option *ngFor="let c of listaDispositivos" [value]="c.idDispositivoTaller">
+            {{c.idDispositivoTaller}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('dispositivo')?.hasError('required')"
+        >El dispositivo es obligatorio.</mat-error>       
+      </mat-form-field>
+    <br/>
+
+    <mat-form-field appearance="fill" class="example-full-width">
+        <input
+          matInput
+          placeholder="Ingrese fecha"
+          [matDatepicker]="picker"
+          formControlName="fecha"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+          >La fecha es obligatoria.</mat-error
+        >
+      </mat-form-field>  
+
+      
+        
+        <button mat-raised-button color="accent"> Aceptar</button>
+           
+    </form>
+</div>
+    

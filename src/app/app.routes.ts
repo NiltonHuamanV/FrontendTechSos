@@ -55,6 +55,9 @@ export const routes: Routes = [
         children:[
             {
                 path:'insertarreparacion', component: CreaeditareparacionComponent,
+            },
+            {
+                path: 'ediciones/:id', component: CreaeditareparacionComponent,
             }
         ]
     },

@@ -27,6 +27,7 @@ export class ListarreparacionComponent implements OnInit{
     'c4',
     'c5',
     'c6',
+    'c7',
   ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
