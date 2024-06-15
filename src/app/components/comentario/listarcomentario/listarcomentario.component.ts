@@ -26,6 +26,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './listarcomentario.component.html',
   styleUrl: './listarcomentario.component.css'
 })
+
 export class ListarcomentarioComponent implements OnInit {
 
   dataSource: MatTableDataSource<ComentarioClienteTaller> = new MatTableDataSource();
@@ -56,18 +57,11 @@ export class ListarcomentarioComponent implements OnInit {
   }
 
   eliminar(id: number) {
-    this.cS.eliminar(id).subscribe(
-      (data) => {
-        this.cS.list().subscribe((data)=>{
-          this.cS.setlist(data)
-        });
-      },
-      (error) => {
-        this.snackBar.open('No fue posible eliminar el registro, ya se encuentra registrado en otro lado', 'Cerrar', {
-          duration: 3000 // Duración del mensaje en milisegundos
-        });
-      }
-    );
+    this.cS.eliminar(id).subscribe((data) => {
+      this.cS.list().subscribe((data) => {
+        this.cS.setlist(data);
+      });
+    });
   }
 }
 

@@ -10,6 +10,7 @@ import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { Taller } from '../../../models/taller';
 import { TallerService } from '../../../services/taller.service';
 import { District } from '../../../models/district';
+import { DistrictService } from '../../../services/district.service';
 
 @Component({
   selector: 'app-creaeditataller',
@@ -36,13 +37,16 @@ export class CreaeditatallerComponent implements OnInit
   mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
+
   listaDistritos: District[] = [];
 
     constructor(
       private tS: TallerService,
       private router: Router,
       private formBuilder: FormBuilder,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private DisS :DistrictService,
+
     ) {}
 
     ngOnInit(): void {
@@ -59,6 +63,10 @@ export class CreaeditatallerComponent implements OnInit
         direccion: ['', Validators.required],
         distrito: ['', Validators.required],
 
+      });
+
+      this.DisS.list().subscribe((data) => {
+        this.listaDistritos = data;
       });
     }
       aceptar(): void {
