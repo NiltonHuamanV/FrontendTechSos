@@ -22,6 +22,24 @@
           {{ element.marca.nombre }}
         </td>
       </ng-container>
+      
+      <ng-container matColumnDef="modificar">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idmodelo]">
+            Actualizar
+          </button> 
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="deletes(element.idmodelo)">
+            Eliminar
+          </button> 
+        </td>
+      </ng-container>
+  
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -2,17 +2,23 @@ import { Component } from '@angular/core';
 import {MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Modelo } from '../../../models/modelo';
 import { ModeloService } from '../../../services/modelo.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-listarmodelo',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatButtonModule,RouterLink],
   templateUrl: './listarmodelo.component.html',
   styleUrl: './listarmodelo.component.css'
 })
 export class ListarmodeloComponent {
-  displayedColumns: string[] = ['codigo', 'modelo', 'marca']
+  displayedColumns: string[] = ['codigo', 'modelo', 'marca', 'modificar', 'eliminar']
   datasource : MatTableDataSource<Modelo>= new MatTableDataSource()
-  constructor(private mS:ModeloService){}
+  constructor(
+    private mS:ModeloService,
+    private snackBar: MatSnackBar
+  ){}
 
   ngOnInit(): void {
     this.mS.list().subscribe(data=> {
@@ -21,5 +27,19 @@ export class ListarmodeloComponent {
     this.mS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
     });
+}
+deletes(id: number): void {
+  this.mS.delete(id).subscribe(
+    (data) => {
+      this.mS.list().subscribe((data)=>{
+        this.mS.setList(data)
+      });
+    },
+    (error) => {
+      this.snackBar.open('No fue posible eliminar el registro', 'Cerrar', {
+        duration: 3000 // Duración del mensaje en milisegundos
+      });
+    }
+  );
 }
 }

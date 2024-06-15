@@ -39,6 +39,9 @@ export const routes: Routes = [
         children:[
             {
                 path:'insertarmodelo', component:CreaeditamodeloComponent
+            },
+            {
+                path:'ediciones/:id', component:CreaeditamodeloComponent
             }
         ]
     },
