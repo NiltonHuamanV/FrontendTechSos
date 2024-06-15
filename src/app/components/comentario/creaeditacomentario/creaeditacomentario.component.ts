@@ -11,6 +11,7 @@ import { ComentarioClienteTaller } from '../../../models/comentario';
 import { ComentarioService } from '../../../services/comentario.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Taller } from '../../../models/taller';
+import { TallerService } from '../../../services/taller.service';
 
 
 @Component({
@@ -47,7 +48,9 @@ export class CreaeditacomentarioComponent implements OnInit{
     private cS: ComentarioService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private TaS :TallerService,
+
   ) {}
 
 
@@ -65,9 +68,11 @@ export class CreaeditacomentarioComponent implements OnInit{
       calificacion: ['', Validators.required],
       fechaComentario: ['', Validators.required],
       taller: ['', Validators.required],
-
     });
 
+    this.TaS.list().subscribe((data) => {
+      this.listaTalleres = data;
+    });
 }
 
 aceptar(): void {

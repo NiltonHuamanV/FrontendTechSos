@@ -13,10 +13,10 @@ import { MarcaService } from '../../../services/marca.service';
 @Component({
   selector: 'app-creaeditamodelo',
   standalone: true,
-  imports: [MatFormFieldModule, 
+  imports: [MatFormFieldModule,
     ReactiveFormsModule,
-    MatSelectModule, 
-    CommonModule, 
+    MatSelectModule,
+    CommonModule,
     MatInputModule,
     MatButtonModule],
   templateUrl: './creaeditamodelo.component.html',
@@ -25,13 +25,16 @@ import { MarcaService } from '../../../services/marca.service';
 export class CreaeditamodeloComponent implements OnInit {
 form:FormGroup = new FormGroup({})
 modelo:Modelo = new Modelo();
+
 listaMarcas: Marca[] = [];
+
 constructor(
-  private formBuilder:FormBuilder, 
+  private formBuilder:FormBuilder,
   private mS: ModeloService,
   private router:Router,
   private MaS :MarcaService,
 ){}
+
 ngOnInit():void
 {
   this.form=this.formBuilder.group({
@@ -48,7 +51,7 @@ aceptar():void
     {
       this.modelo.nombre = this.form.value.modelo;
       this.modelo.marca.idmarca = this.form.value.marca;
-      
+
       this.mS.insert(this.modelo).subscribe((data) => {
         this.mS.list().subscribe((data) => {
           this.mS.setList(data);
