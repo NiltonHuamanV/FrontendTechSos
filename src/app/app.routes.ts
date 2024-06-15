@@ -18,7 +18,7 @@ import { CreaeditareparacionComponent } from './components/reparacion/creaeditar
 
 export const routes: Routes = [
     {
-        path:"distrito", component: DistrictComponent,
+        path:"district", component: DistrictComponent,
         children:[
             {
                 path:'insertardistrict', component:CreaeditadistrictComponent
