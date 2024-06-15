@@ -10,11 +10,13 @@
   <button mat-button class="dispositivo-button" [matMenuTriggerFor]="menuDispositivo">Dispositivo</button>
   <button mat-button class="taller-button" [matMenuTriggerFor]="menuTaller">Taller</button>
 
+  <button mat-button class="comentario-button" [matMenuTriggerFor]="menuComentario">Comentario</button>
+
 </mat-toolbar>
 
 <mat-menu #menuDistrict="matMenu">
-  <button mat-menu-item routerLink="/district">Listar</button>
-  <button mat-menu-item routerLink="/district/insertardistrict">Registrar</button>
+  <button mat-menu-item routerLink="/distrito">Listar</button>
+  <button mat-menu-item routerLink="/distrito/insertardistrict">Registrar</button>
 </mat-menu>
 
 <mat-menu #menuBrand="matMenu">
@@ -38,6 +40,12 @@
 <mat-menu #menuTaller="matMenu">
   <button mat-menu-item routerLink="/taller">Listar</button>
   <button mat-menu-item routerLink="/taller/insertartaller">Registrar</button>
+</mat-menu>
+
+
+<mat-menu #menuComentario="matMenu">
+  <button mat-menu-item routerLink="/comentarios">Listar</button>
+  <button mat-menu-item routerLink="/comentarios/insertarcomentario">Registrar</button>
 </mat-menu>
 
 <router-outlet></router-outlet>

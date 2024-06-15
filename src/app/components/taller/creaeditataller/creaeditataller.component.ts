@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { Taller } from '../../../models/taller';
 import { TallerService } from '../../../services/taller.service';
+import { District } from '../../../models/district';
 
 @Component({
   selector: 'app-creaeditataller',
@@ -35,12 +36,7 @@ export class CreaeditatallerComponent implements OnInit
   mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
-
-  distritos: { value: string; viewValue: string }[] = [
-    { value: 'Chorrillos', viewValue: 'Chorrillos' },
-    { value: 'Barranco', viewValue: 'Barranco' },
-    { value: 'Miraflores', viewValue: 'Miraflores ' },
-    { value: 'Surco', viewValue: 'Surco' },]
+  listaDistritos: District[] = [];
 
     constructor(
       private tS: TallerService,

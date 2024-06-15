@@ -10,10 +10,12 @@ import { CreaeditadispositivoComponent } from './components/dispositivo/creaedit
 import { ReparacionComponent } from './components/reparacion/reparacion.component';
 import { TallerComponent } from './components/taller/taller.component';
 import { CreaeditatallerComponent } from './components/taller/creaeditataller/creaeditataller.component';
+import { CreaeditacomentarioComponent } from './components/comentario/creaeditacomentario/creaeditacomentario.component';
+import { ComentarioComponent } from './components/comentario/comentario.component';
 
 export const routes: Routes = [
     {
-        path:"district", component: DistrictComponent,
+        path:"distrito", component: DistrictComponent,
         children:[
             {
                 path:'insertardistrict', component:CreaeditadistrictComponent
@@ -54,7 +56,20 @@ export const routes: Routes = [
         children:[
             {
                 path:'insertartaller', component:CreaeditatallerComponent
-            }
+            },
+            { path: 'ediciones/:id', component:CreaeditatallerComponent },
+
         ]
     },
+
+    {
+      path:"comentarios", component: ComentarioComponent,
+      children:[
+          {
+              path:'insertarcomentario', component:CreaeditacomentarioComponent
+          },
+          { path: 'ediciones/:id', component:CreaeditacomentarioComponent },
+
+      ]
+  },
 ];
