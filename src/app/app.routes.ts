@@ -8,6 +8,8 @@ import { CreaeditamodeloComponent } from './components/modelo/creaeditamodelo/cr
 import { DispositivoComponent } from './components/dispositivo/dispositivo.component';
 import { CreaeditadispositivoComponent } from './components/dispositivo/creaeditadispositivo/creaeditadispositivo.component';
 import { ReparacionComponent } from './components/reparacion/reparacion.component';
+import { TallerComponent } from './components/taller/taller.component';
+import { CreaeditatallerComponent } from './components/taller/creaeditataller/creaeditataller.component';
 
 export const routes: Routes = [
     {
@@ -45,5 +47,14 @@ export const routes: Routes = [
     },
     {
         path:"reparacion", component: ReparacionComponent
-    }
+    },
+
+    {
+        path:"taller", component: TallerComponent,
+        children:[
+            {
+                path:'insertartaller', component:CreaeditatallerComponent
+            }
+        ]
+    },
 ];
