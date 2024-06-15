@@ -10,6 +10,8 @@
   <button mat-button class="dispositivo-button" [matMenuTriggerFor]="menuDispositivo">Dispositivo</button>
   <button mat-button class="taller-button" [matMenuTriggerFor]="menuTaller">Taller</button>
 
+  <button mat-button class="dispositivo-taller-button" [matMenuTriggerFor]="menuDispositivoTaller">Dispositivo_Taller</button>
+
   <button mat-button class="comentario-button" [matMenuTriggerFor]="menuComentario">Comentario</button>
 
 </mat-toolbar>
@@ -26,6 +28,7 @@
 
 <mat-menu #menuReparacion="matMenu">
   <button mat-menu-item routerLink="/reparacion">Listar</button>
+  <button mat-menu-item routerLink="/reparacion/insertarreparacion">Registrar</button>
 </mat-menu>
 
 <mat-menu #menuModelo="matMenu">
@@ -42,6 +45,10 @@
   <button mat-menu-item routerLink="/taller/insertartaller">Registrar</button>
 </mat-menu>
 
+<mat-menu #menuDispositivoTaller="matMenu">
+  <button mat-menu-item routerLink="/dispositivotaller">Listar</button>
+  <button mat-menu-item routerLink="/dispositivotaller/insertardispositivotaller">Registrar</button>
+</mat-menu>
 
 <mat-menu #menuComentario="matMenu">
   <button mat-menu-item routerLink="/comentarios">Listar</button>

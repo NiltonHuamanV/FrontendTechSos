@@ -12,6 +12,9 @@ import { TallerComponent } from './components/taller/taller.component';
 import { CreaeditatallerComponent } from './components/taller/creaeditataller/creaeditataller.component';
 import { CreaeditacomentarioComponent } from './components/comentario/creaeditacomentario/creaeditacomentario.component';
 import { ComentarioComponent } from './components/comentario/comentario.component';
+import { DispositivotallerComponent } from './components/dispositivotaller/dispositivotaller.component';
+import { CreaeditadispositivotallerComponent } from './components/dispositivotaller/creaeditadispositivotaller/creaeditadispositivotaller.component';
+import { CreaeditareparacionComponent } from './components/reparacion/creaeditareparacion/creaeditareparacion.component';
 
 export const routes: Routes = [
     {
@@ -48,7 +51,12 @@ export const routes: Routes = [
         ]
     },
     {
-        path:"reparacion", component: ReparacionComponent
+        path:"reparacion", component: ReparacionComponent,
+        children:[
+            {
+                path:'insertarreparacion', component: CreaeditareparacionComponent,
+            }
+        ]
     },
 
     {
@@ -59,6 +67,17 @@ export const routes: Routes = [
             },
             { path: 'ediciones/:id', component:CreaeditatallerComponent },
 
+        ]
+    },
+    {
+        path:"dispositivotaller", component: DispositivotallerComponent,
+        children:[
+            {
+                path:'insertardispositivotaller', component: CreaeditadispositivotallerComponent
+            },
+            {
+                path: 'ediciones/:id', component: CreaeditadispositivotallerComponent
+            }
         ]
     },
 

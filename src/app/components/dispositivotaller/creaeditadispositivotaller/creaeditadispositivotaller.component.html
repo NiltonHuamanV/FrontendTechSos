@@ -1,0 +1,42 @@
+<p>creaeditadispositivotaller works!</p>
+<div>
+    <form [formGroup] = "form" (submit)="aceptar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Dispositivo</mat-label>
+        <mat-select formControlName="dispositivo">
+          <mat-option *ngFor="let c of listaDispositivos" [value]="c.idDispositivo">
+            {{c.idDispositivo}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('dispositivo')?.hasError('required')"
+        >El dispositivo es obligatorio.</mat-error>       
+      </mat-form-field>
+
+      <br/>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Taller</mat-label>
+        <mat-select formControlName="taller">
+          <mat-option *ngFor="let t of listaTalleres" [value]="t.idTaller">
+            {{t.nombre}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('taller')?.hasError('required')"
+        >El taller es obligatorio.</mat-error>       
+      </mat-form-field>
+
+
+
+      <!--mat-form-field class="example-full-width">
+        <mat-label>Taller</mat-label>
+        <textarea  matInput placeholder="taller" formControlName="taller"></textarea>
+        <mat-error *ngIf="form.get('observaciones')?.hasError('required')"
+        >El taller es obligatorio.</mat-error>
+      </!--mat-form-field-->
+      <br />
+        <button mat-raised-button color="accent"> Aceptar</button>
+           
+    </form>
+    </div>
+    
+
