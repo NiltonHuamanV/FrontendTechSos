@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { error } from 'node:console';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-listarmarca',
@@ -33,7 +35,7 @@ export class ListarmarcaComponent implements OnInit{
   ];
 
   dataSource:MatTableDataSource<Marca> = new MatTableDataSource();
-  constructor(private mS:MarcaService){}
+  constructor(private mS:MarcaService, private snackbar: MatSnackBar){}
 
   ngOnInit(): void {
     this.mS.list().subscribe(data => {
@@ -62,7 +64,28 @@ export class ListarmarcaComponent implements OnInit{
       this.mS.list().subscribe((data) => {
         this.mS.setlist(data);
       });
-    });
+    },
+    (error) => {
+      this.snackbar.open('No fue posible eliminar el registro, ya se encuentra registrado en otro lado', 'Cerrar', {
+        duration: 3000 // Duración del mensaje en milisegundos
+      });
+    }
+  );
   }
 
+ /* deletes(id: number): void {
+    this.mS.delete(id).subscribe((data) => {
+        this.mS.list().subscribe((data)=>{
+          this.mS.setList(data)
+        });
+      },
+      (error) => {
+        this.snackBar.open('No fue posible eliminar el registro, ya se encuentra registrado en otro lado', 'Cerrar', {
+          duration: 3000 // Duración del mensaje en milisegundos
+        });
+      }
+    );
+  }*/
+  
+  
 }
