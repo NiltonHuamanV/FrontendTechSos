@@ -1,5 +1,11 @@
 <div>
     <form [formGroup] = "form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" readonly>
+      </mat-form-field>
+          <br/>
+
       <mat-form-field class="example-full-width">
         <mat-label>Dispositivo</mat-label>
         <mat-select formControlName="modelo">

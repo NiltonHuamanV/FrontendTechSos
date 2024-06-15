@@ -50,6 +50,9 @@ export const routes: Routes = [
         children:[
             {
                 path:'insertardispositivo', component:CreaeditadispositivoComponent,
+            },
+            {
+                path:'ediciones/:id', component:CreaeditadispositivoComponent
             }
         ]
     },
