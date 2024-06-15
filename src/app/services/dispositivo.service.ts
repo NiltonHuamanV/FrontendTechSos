@@ -25,4 +25,13 @@ export class DispositivoService {
   getList() {
     return this.listaCambio.asObservable();
   }
+  
+  listId(id: number) {
+    return this.httpClient.get<Dispositivo>(`${this.url}/${id}`);
+  }
+
+  update(d: Dispositivo) {
+    return this.httpClient.put(this.url, d);
+  }
+
 }
