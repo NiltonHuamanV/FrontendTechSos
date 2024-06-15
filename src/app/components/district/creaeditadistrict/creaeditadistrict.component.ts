@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -17,23 +17,25 @@ import { Router } from '@angular/router';
     MatSelectModule, 
     CommonModule, 
     MatInputModule,
-    MatButtonModule],
+    MatButtonModule,
+    NgIf,
+  ],
   templateUrl: './creaeditadistrict.component.html',
   styleUrl: './creaeditadistrict.component.css'
 })
-export class CreaeditadistrictComponent implements OnInit{
+export class CreaeditadistrictComponent {
   form:FormGroup= new FormGroup({});
   district:District = new District();
  
-constructor(private formBuilder:FormBuilder,
-  private dS:DistrictService,
-  private router:Router
-){}
-ngOnInit(): void {
-  this.form=this.formBuilder.group({
-    distrito:['',Validators.required],
-  })
-}
+  constructor(private formBuilder:FormBuilder,
+    private dS:DistrictService,
+    private router:Router
+  ){}
+  ngOnInit(): void {
+    this.form=this.formBuilder.group({
+      distrito:['',Validators.required],
+    })
+  }
   aceptar():void
   { 
     if(this.form.valid)

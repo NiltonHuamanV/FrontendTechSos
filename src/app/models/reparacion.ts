@@ -1,4 +1,5 @@
 //import { DispositivoTaller} from "./dispositivotaller"
+import { DispositivoTaller } from "./dispositivotaller";
 
 export class Reparacion{
     idReparacion: number = 0;
@@ -7,6 +8,6 @@ export class Reparacion{
     Problema: string = ""
     Estado: string = ""
     Costo: number = 0
-    //dispositivoTaller: DispositivoTaller = new DispositivoTaller()
+    dispositivoTaller: DispositivoTaller = new DispositivoTaller()
 
 }
