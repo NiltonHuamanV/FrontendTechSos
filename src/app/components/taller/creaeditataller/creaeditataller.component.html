@@ -17,16 +17,17 @@
     </mat-form-field>
   <br/>
   <mat-form-field class="example-full-width">
-      <mat-label>Distrito:</mat-label>
-      <mat-select formControlName="distrito">
-        <mat-option *ngFor="let g of distritos" [value]="g.value">
-          {{g.viewValue}}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('distrito')?.hasError('required')"
-      >El Distrito es obligatorio.</mat-error
-    >
-    </mat-form-field>
+    <mat-label>Distrito:</mat-label>
+    <mat-select formControlName="distrito">
+      <mat-option *ngFor="let c of listaDistritos" [value]="c.idDistrict">
+        {{c.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('distrito')?.hasError('required')"
+    >La distrito es obligatorio.</mat-error>
+  </mat-form-field>
+
+
   <br/>
 
     <mat-form-field class="example-full-width">
@@ -39,7 +40,7 @@
     <br />
     <mat-form-field class="example-full-width">
       <mat-label>Número:</mat-label>
-      <input matInput placeholder="numerodetelefono" formControlName="numerodetelefono" />
+      <input matInput placeholder="numero telefono" formControlName="numerodetelefono" />
       <mat-error *ngIf="form.get('numerodetelefono')?.hasError('required')"
       >El número es obligatorio.</mat-error
     >
@@ -47,7 +48,7 @@
     <br />
 
     <button mat-raised-button color="primary">Aceptar</button>
-    <button mat-raised-button color="warn" routerLink="/peliculas">
+    <button mat-raised-button color="warn" routerLink="/taller">
       Cancelar
     </button>
     <p>{{ mensaje }}</p>
