@@ -85,7 +85,7 @@ export const routes: Routes = [
                 path:'insertardispositivotaller', component: CreaeditadispositivotallerComponent
             },
             {
-                path: 'ediciones/:id', component: CreaeditadispositivotallerComponent
+                path:'ediciones/:id', component: CreaeditadispositivotallerComponent
             }
         ]
     },

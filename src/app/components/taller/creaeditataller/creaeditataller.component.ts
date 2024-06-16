@@ -37,6 +37,7 @@ export class CreaeditatallerComponent implements OnInit
   id: number = 0;
   edicion: boolean = false;
   listaDistritos: District[] = [];
+  mensaje: string = '';
 
     constructor(
       private tS: TallerService,

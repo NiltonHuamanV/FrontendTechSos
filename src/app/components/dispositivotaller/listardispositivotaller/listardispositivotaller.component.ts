@@ -27,7 +27,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './listardispositivotaller.component.css'
 })
 export class ListardispositivotallerComponent implements OnInit{
-  displayedColumns: string[] = ['codigo', 'dispositivo', 'taller']
+  displayedColumns: string[] = ['codigo', 'dispositivo', 'taller', 'accion01', 'accion02']
   dataSource: MatTableDataSource<DispositivoTaller> = new MatTableDataSource();
 
   constructor(private dtS: DispositivotallerService, private snackBar: MatSnackBar){}

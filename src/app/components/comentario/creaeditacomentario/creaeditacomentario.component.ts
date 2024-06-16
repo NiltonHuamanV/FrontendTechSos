@@ -39,6 +39,7 @@ export class CreaeditacomentarioComponent implements OnInit{
   id: number = 0;
   edicion: boolean = false;
   listaTalleres: Taller[] = [];
+  mensaje: string = '';
 
 
 
