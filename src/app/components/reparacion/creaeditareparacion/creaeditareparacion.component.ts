@@ -46,25 +46,33 @@ export class CreaeditareparacionComponent {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      dispositivo:['',Validators.required],
-      fecha:['',Validators.required]
+      dispositivotaller:['',Validators.required],
+      fechainicio:['',Validators.required],
+      fechafin:['',Validators.required],
+      problema:['',Validators.required],
+      estado:['',Validators.required],
+      costo:['',Validators.required],
     });
     this.dtS.list().subscribe((data) => {
       this.listaDispositivos = data;
     });
   }
 
-  aceptar():void
-  { 
-    this.reparation.dispositivoTaller.dispositivo = this.form.value.dispositivo;
-    this.reparation.FechaFin = this.form.value.fecha;
-    if(this.form.valid)
-      {
-        this.rS.insert(this.reparation).subscribe((data)=>{
-          this.rS.list().subscribe((data)=>{
-            this.rS.setList(data)
-          })
+  aceptar():void {
+    if(this.form.valid) {
+      this.reparation.dispositivoTaller.idDispositivoTaller = this.form.value.dispositivotaller;
+      this.reparation.FechaInicio = this.form.value.fechainicio;
+      this.reparation.FechaFin = this.form.value.fechafin;
+      this.reparation.Problema = this.form.value.problema;
+      this.reparation.Estado = this.form.value.estado;
+      this.reparation.Costo = this.form.value.costo;
+
+      this.rS.insert(this.reparation).subscribe((data)=>{
+        this.rS.list().subscribe((data)=>{
+          this.rS.setList(data)
+        })
       });
+
       this.router.navigate(['reparacion'])
     }
   }

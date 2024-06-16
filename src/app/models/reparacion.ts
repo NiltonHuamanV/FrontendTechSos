@@ -1,4 +1,3 @@
-//import { DispositivoTaller} from "./dispositivotaller"
 import { DispositivoTaller } from "./dispositivotaller";
 
 export class Reparacion{
