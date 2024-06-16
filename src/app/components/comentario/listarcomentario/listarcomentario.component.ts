@@ -27,18 +27,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './listarcomentario.component.css'
 })
 
-export class ListarcomentarioComponent implements OnInit {
-
-  dataSource: MatTableDataSource<ComentarioClienteTaller> = new MatTableDataSource();
-
+export class ListarcomentarioComponent {
   displayedColumns: string[] = [
     'codigo',
     'descripcion',
     'calificacion',
     'fechaComentario',
     'taller',
-    'accion01',
-    'accion02'];
+    'modificar',
+    'eliminar'];
+
+  dataSource: MatTableDataSource<ComentarioClienteTaller> = new MatTableDataSource();
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -46,23 +46,29 @@ export class ListarcomentarioComponent implements OnInit {
   constructor(private cS: ComentarioService, private snackBar:MatSnackBar) {}
 
   ngOnInit(): void {
-    this.cS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
+    this.cS.list().subscribe(data=> {
+      this.dataSource = new MatTableDataSource(data)
+    })
     this.cS.getlist().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
     });
-  }
+}
 
-  eliminar(id: number) {
-    this.cS.eliminar(id).subscribe((data) => {
-      this.cS.list().subscribe((data) => {
-        this.cS.setlist(data);
+
+deletes(id: number): void {
+  this.cS.eliminar(id).subscribe(
+    (data) => {
+      this.cS.list().subscribe((data)=>{
+        this.cS.setlist(data)
       });
-    });
-  }
+    },
+    (error) => {
+      this.snackBar.open('No fue posible eliminar el registro', 'Cerrar', {
+        duration: 3000 // Duración del mensaje en milisegundos
+      });
+    }
+  );
+}
 }
 
 

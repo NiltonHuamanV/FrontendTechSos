@@ -34,8 +34,8 @@ export class ListartallerComponent implements OnInit {
   'numerodetelefono',
   'direccion',
   'distrito',
-  'accion01',
-  'accion02'];
+  'modificar',
+  'eliminar'];
 
   dataSource:MatTableDataSource<Taller> = new MatTableDataSource()
 
@@ -51,12 +51,18 @@ export class ListartallerComponent implements OnInit {
 
 }
 
-eliminar(id: number) {
-  this.tS.eliminar(id).subscribe((data) => {
-    this.tS.list().subscribe((data) => {
-      this.tS.setlist(data);
-    });
-  });
+deletes(id: number): void {
+  this.tS.eliminar(id).subscribe(
+    (data) => {
+      this.tS.list().subscribe((data)=>{
+        this.tS.setlist(data)
+      });
+    },
+    (error) => {
+      this.snackBar.open('No fue posible eliminar el registro', 'Cerrar', {
+        duration: 3000 // Duración del mensaje en milisegundos
+      });
+    }
+  );
 }
-
 }

@@ -34,10 +34,8 @@ export class CreaeditatallerComponent implements OnInit
 {
   form: FormGroup = new FormGroup({});
   taller: Taller = new Taller();
-  mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
-
   listaDistritos: District[] = [];
 
     constructor(
@@ -69,13 +67,15 @@ export class CreaeditatallerComponent implements OnInit
         this.listaDistritos = data;
       });
     }
+
+
       aceptar(): void {
         if (this.form.valid) {
           this.taller.idTaller = this.form.value.codigo;
           this.taller.nombre = this.form.value.taller;
           this.taller.numerodetelefono = this.form.value.numerodetelefono;
           this.taller.direccion = this.form.value.direccion;
-          this.taller.district = this.form.value.distrito;
+          this.taller.district.idDistrict = this.form.value.distrito;
           if (this.edicion) {
             this.tS.update(this.taller).subscribe(() => {
               this.tS.list().subscribe((data) => {
@@ -102,7 +102,7 @@ export class CreaeditatallerComponent implements OnInit
               nombre: new FormControl(data.nombre),
               numerodetelefono: new FormControl(data.numerodetelefono),
               direccion: new FormControl(data.direccion),
-              distrito: new FormControl(data.district),
+              distrito: new FormControl(data.district.idDistrict),
 
             });
           });

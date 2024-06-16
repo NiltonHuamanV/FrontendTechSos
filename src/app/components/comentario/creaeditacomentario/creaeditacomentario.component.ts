@@ -36,7 +36,6 @@ import { TallerService } from '../../../services/taller.service';
 export class CreaeditacomentarioComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   comentario: ComentarioClienteTaller = new ComentarioClienteTaller();
-  mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
   listaTalleres: Taller[] = [];
@@ -81,7 +80,7 @@ aceptar(): void {
     this.comentario.descripcion = this.form.value.descripcion;
     this.comentario.calificacion = this.form.value.calificacion;
     this.comentario.fechaComentario = this.form.value.fechaComentario;
-    this.comentario.taller = this.form.value.taller;
+    this.comentario.taller.idTaller = this.form.value.taller;
     if (this.edicion) {
       this.cS.update(this.comentario).subscribe(() => {
         this.cS.list().subscribe((data) => {
@@ -108,7 +107,7 @@ init() {
         descripcion: new FormControl(data.descripcion),
         calificacion: new FormControl(data.calificacion),
         fechaComentario: new FormControl(data.fechaComentario),
-        taller: new FormControl(data.taller),
+        taller: new FormControl(data.taller.idTaller),
 
       });
     });

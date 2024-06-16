@@ -12,13 +12,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './listarmodelo.component.html',
   styleUrl: './listarmodelo.component.css'
 })
+
+
 export class ListarmodeloComponent {
   displayedColumns: string[] = ['codigo', 'modelo', 'marca', 'modificar', 'eliminar']
   datasource : MatTableDataSource<Modelo>= new MatTableDataSource()
-  constructor(
-    private mS:ModeloService,
-    private snackBar: MatSnackBar
-  ){}
+  constructor(private mS:ModeloService, private snackBar: MatSnackBar  )  {}
 
   ngOnInit(): void {
     this.mS.list().subscribe(data=> {

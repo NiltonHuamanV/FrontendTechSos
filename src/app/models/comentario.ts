@@ -7,3 +7,9 @@ export class ComentarioClienteTaller{
   fechaComentario:Date=new Date(Date.now())
   taller:Taller= new Taller()
 }
+
+
+
+
+
+
