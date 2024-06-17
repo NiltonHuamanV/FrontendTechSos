@@ -35,7 +35,8 @@ export const routes: Routes = [
             {
                 path:'insertardistrict', component:CreaeditadistrictComponent
             }
-        ]
+        ],
+        canActivate: [segGuard],
     },
     {
         path:"marca", component: MarcaComponent,
@@ -43,7 +44,8 @@ export const routes: Routes = [
             {
                 path:'insertarmarca', component: CreaeditamarcaComponent
             }
-        ]
+        ],
+        canActivate: [segGuard],
     },
 
     {
@@ -55,7 +57,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditamodeloComponent
             }
-        ]
+        ],
+        canActivate: [segGuard],
     },
     {
         path:"dispositivo", component: DispositivoComponent,
@@ -66,7 +69,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditadispositivoComponent
             }
-        ]
+        ],
+        canActivate: [segGuard],
     },
     {
         path:"reparacion", component: ReparacionComponent,
@@ -77,7 +81,8 @@ export const routes: Routes = [
             {
                 path: 'ediciones/:id', component: CreaeditareparacionComponent,
             }
-        ]
+        ],
+        canActivate: [segGuard],
     },
 
     {
@@ -88,7 +93,8 @@ export const routes: Routes = [
             },
             { path: 'ediciones/:id', component:CreaeditatallerComponent },
 
-        ]
+        ],
+        canActivate: [segGuard],
     },
     {
         path:"dispositivotaller", component: DispositivotallerComponent,
@@ -99,7 +105,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component: CreaeditadispositivotallerComponent
             }
-        ]
+        ],
+        canActivate: [segGuard],
     },
 
     {
@@ -109,8 +116,8 @@ export const routes: Routes = [
               path:'insertarcomentario', component:CreaeditacomentarioComponent
           },
           { path: 'ediciones/:id', component:CreaeditacomentarioComponent },
-
-      ]
+      ],
+      canActivate: [segGuard],
     },
     {
         path: 'homes',

@@ -29,6 +29,7 @@
         <!-- listarmarca.component.html -->
 <mat-card *ngFor="let marca of marcas">
   <mat-card-header>
+    <mat-icon>smartphone</mat-icon>
     <mat-card-title>{{ marca.idmarca }}</mat-card-title>
     <mat-card-title>{{ marca.nombre }}</mat-card-title>
   </mat-card-header>
@@ -46,6 +47,8 @@
         >
         <mat-icon>delete</mat-icon>
     </button>
+
+    
     
   </mat-card-actions>
 </mat-card>

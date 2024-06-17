@@ -18,18 +18,36 @@
   </!--button-->
 
 
-  <button mat-button class="district-button" [matMenuTriggerFor]="menuDistrict">District</button>
-  <button mat-button class="marca-button" [matMenuTriggerFor]="menuBrand">Marca</button>
-  <button mat-button class="reparacion-button" [matMenuTriggerFor]="menuReparacion">Reparacion</button>
-  <button mat-button class="modelo-button" [matMenuTriggerFor]="menuModelo">Modelo</button>
-  <button mat-button class="dispositivo-button" [matMenuTriggerFor]="menuDispositivo">Dispositivo</button>
-  <button mat-button class="taller-button" [matMenuTriggerFor]="menuTaller">Taller</button>
+  <button mat-button class="district-button" [matMenuTriggerFor]="menuDistrict"
+  *ngIf="isAdmin()"
+  >District</button>
+  <button mat-button class="marca-button" [matMenuTriggerFor]="menuBrand" 
+  *ngIf="isAdmin()"
+  >Marca</button>
+  <button mat-button class="reparacion-button" [matMenuTriggerFor]="menuReparacion"
+  *ngIf="isAdmin() || isTecnico()"
+  >Reparacion</button>
+  <button mat-button class="modelo-button" [matMenuTriggerFor]="menuModelo"
+  *ngIf="isAdmin()"
+  >Modelo</button>
+  <button mat-button class="dispositivo-button" [matMenuTriggerFor]="menuDispositivo"
+  *ngIf="isAdmin() || isCliente()"
+  >Dispositivo</button>
+  <button mat-button class="taller-button" [matMenuTriggerFor]="menuTaller"
+  *ngIf="isAdmin() || isTecnico()"
+  >Taller</button>
 
-  <button mat-button class="dispositivo-taller-button" [matMenuTriggerFor]="menuDispositivoTaller">Dispositivo_Taller</button>
+  <button mat-button class="dispositivo-taller-button" [matMenuTriggerFor]="menuDispositivoTaller"
+  *ngIf="isAdmin() || isCliente()"
+  >Dispositivo_Taller</button>
 
-  <button mat-button class="comentario-button" [matMenuTriggerFor]="menuComentario">Comentario</button>
+  <button mat-button class="comentario-button" [matMenuTriggerFor]="menuComentario"
+  *ngIf="isAdmin() || isCliente()"
+  >Comentario</button>
 
-  <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
+  <button mat-button [matMenuTriggerFor]="menuSalir"
+  *ngIf="isAdmin() || isCliente()"
+  >Usuario</button>
 </mat-toolbar>
 
 <mat-menu #menuDistrict="matMenu">

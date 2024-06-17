@@ -15,7 +15,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
     provideClientHydration(),
-    provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync(), importProvidersFrom(
+    provideHttpClient(withInterceptorsFromDi(), withFetch()), 
+    provideAnimationsAsync(), importProvidersFrom(
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
