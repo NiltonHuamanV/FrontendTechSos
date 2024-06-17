@@ -15,8 +15,20 @@ import { ComentarioComponent } from './components/comentario/comentario.componen
 import { DispositivotallerComponent } from './components/dispositivotaller/dispositivotaller.component';
 import { CreaeditadispositivotallerComponent } from './components/dispositivotaller/creaeditadispositivotaller/creaeditadispositivotaller.component';
 import { CreaeditareparacionComponent } from './components/reparacion/creaeditareparacion/creaeditareparacion.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { segGuard } from './components/guard/seguridad.guard';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
     {
         path:"district", component: DistrictComponent,
         children:[
@@ -99,5 +111,10 @@ export const routes: Routes = [
           { path: 'ediciones/:id', component:CreaeditacomentarioComponent },
 
       ]
-  },
+    },
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [segGuard],
+    },
 ];

@@ -1,8 +1,23 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button routerLink="/" class="techsos-button">
+  <!--button mat-icon-button routerLink="/" class="techsos-button">
+    <mat-icon aria-hidden="true" aria-label="Example home icon">home</mat-icon>
+    <span class="techsos-text">TechSos</span>
+  </!--button-->
+  <button mat-icon-button [routerLink]="['/homes']" class="techsos-button">
     <mat-icon aria-hidden="true" aria-label="Example home icon">home</mat-icon>
     <span class="techsos-text">TechSos</span>
   </button>
+
+
+  <!--button mat-button [matMenuTriggerFor]="menuMovie" *ngIf="isEmpleado()">
+    <mat-icon>movie</mat-icon>Películas
+  </!--button-->
+
+  <!--button-- mat-button [matMenuTriggerFor]="menuReview" *ngIf="isCritico()">
+    <mat-icon> person_pin</mat-icon>Críticas
+  </!--button-->
+
+
   <button mat-button class="district-button" [matMenuTriggerFor]="menuDistrict">District</button>
   <button mat-button class="marca-button" [matMenuTriggerFor]="menuBrand">Marca</button>
   <button mat-button class="reparacion-button" [matMenuTriggerFor]="menuReparacion">Reparacion</button>
@@ -14,6 +29,7 @@
 
   <button mat-button class="comentario-button" [matMenuTriggerFor]="menuComentario">Comentario</button>
 
+  <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
 </mat-toolbar>
 
 <mat-menu #menuDistrict="matMenu">
@@ -53,6 +69,17 @@
 <mat-menu #menuComentario="matMenu">
   <button mat-menu-item routerLink="/comentarios">Listar</button>
   <button mat-menu-item routerLink="/comentarios/insertarcomentario">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
 </mat-menu>
 
 <router-outlet></router-outlet>
