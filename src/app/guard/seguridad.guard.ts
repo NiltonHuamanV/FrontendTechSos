@@ -1,7 +1,6 @@
 import { inject } from "@angular/core";
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
-import { LoginService } from "../../services/login.service";
-
+import { LoginService } from "../services/login.service";
 
 export const segGuard = (
   route: ActivatedRouteSnapshot,

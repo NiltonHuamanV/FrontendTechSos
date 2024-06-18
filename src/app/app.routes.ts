@@ -17,7 +17,7 @@ import { CreaeditadispositivotallerComponent } from './components/dispositivotal
 import { CreaeditareparacionComponent } from './components/reparacion/creaeditareparacion/creaeditareparacion.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { segGuard } from './components/guard/seguridad.guard';
+import { segGuard } from './guard/seguridad.guard';
 
 export const routes: Routes = [
     {
