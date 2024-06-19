@@ -1,7 +1,7 @@
-/* styles.css o styles.scss */
+
 
 .background-container {
-    background-color: #1976d2; /* Color primary de Angular Material */
+    background-color: #1976d2; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,24 +10,24 @@
   
   .container {
     text-align: center;
-    width: 500px; /* Ajusta el ancho del contenedor */
+    width: 500px; 
     margin: auto;
-    padding: 50px 30px; /* Ajusta el relleno del contenedor */
+    padding: 50px 30px; 
     border-radius: 12px;
-    background-color: #fff; /* Color de fondo del contenedor principal */
+    background-color: #fff; 
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     color: #333;
   }
   
   .container img {
-    width: 200px; /* Aumenta el tamaño de la imagen */
+    width: 200px;
     height: auto;
     margin-bottom: 20px;
   }
   
   .container h2 {
     margin-bottom: 20px;
-    font-size: 32px; /* Aumenta el tamaño de la fuente del título */
+    font-size: 32px; 
   }
   
   .container .mat-form-field {
@@ -36,14 +36,14 @@
   }
   
   .container .mat-form-field input {
-    font-size: 18px; /* Aumenta el tamaño de la fuente de los inputs */
+    font-size: 18px;
   }
   
   .container button {
     margin: 10px 5px;
     width: calc(50% - 10px);
-    padding: 15px; /* Aumenta el tamaño del padding de los botones */
-    font-size: 18px; /* Aumenta el tamaño de la fuente de los botones */
+    padding: 15px;
+    font-size: 18px;
   }
   
   .container button:hover {
