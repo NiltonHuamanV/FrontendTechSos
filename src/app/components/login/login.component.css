@@ -1,4 +1,52 @@
-mat-form-field {
-    width: 50%;
-    }
-    
+/* styles.css o styles.scss */
+
+.background-container {
+    background-color: #1976d2; /* Color primary de Angular Material */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    width: 500px; /* Ajusta el ancho del contenedor */
+    margin: auto;
+    padding: 50px 30px; /* Ajusta el relleno del contenedor */
+    border-radius: 12px;
+    background-color: #fff; /* Color de fondo del contenedor principal */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    color: #333;
+  }
+  
+  .container img {
+    width: 200px; /* Aumenta el tamaño de la imagen */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .container h2 {
+    margin-bottom: 20px;
+    font-size: 32px; /* Aumenta el tamaño de la fuente del título */
+  }
+  
+  .container .mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .container .mat-form-field input {
+    font-size: 18px; /* Aumenta el tamaño de la fuente de los inputs */
+  }
+  
+  .container button {
+    margin: 10px 5px;
+    width: calc(50% - 10px);
+    padding: 15px; /* Aumenta el tamaño del padding de los botones */
+    font-size: 18px; /* Aumenta el tamaño de la fuente de los botones */
+  }
+  
+  .container button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  

@@ -1,7 +1,8 @@
-<div class="container" style="text-align: center">
+<!-- app.component.html -->
+<div class="background-container">
+  <div class="container">
     <div>
-      <!--img src="assets/logo.png" alt="Logo de la empresa" -->
-
+      <img src="assets/images/TechSOS-logo.png" alt="Logo de la empresa">
     </div>
     <h2>Inicie sesión</h2>
     <mat-form-field class="example-full-width">
@@ -20,4 +21,6 @@
     </mat-form-field>
     <br />
     <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+    <button mat-raised-button color="warn" routerLink="/">Volver</button>
   </div>
+</div>
