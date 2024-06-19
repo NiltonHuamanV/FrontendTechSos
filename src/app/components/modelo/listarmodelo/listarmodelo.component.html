@@ -34,7 +34,8 @@
       <ng-container matColumnDef="eliminar">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="warn" (click)="deletes(element.idmodelo)">
+          <button mat-raised-button color="warn" (click)="deletes(element.idmodelo)"
+          *ngIf="isAdmin()">
             Eliminar
           </button>
         </td>
