@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterLink } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-listartaller',
@@ -20,13 +21,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     RouterLink,
     MatPaginatorModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    NgIf,
   ],
   templateUrl: './listartaller.component.html',
   styleUrl: './listartaller.component.css'
 })
 
 export class ListartallerComponent implements OnInit {
+
+  
+  role: string = '';
+
 
   displayedColumns: String[] =
   ['codigo',
@@ -64,5 +70,14 @@ deletes(id: number): void {
       });
     }
   );
+}
+
+isTecnico() {
+  return this.role === 'TECNICO';
+}
+
+
+isAdmin() {
+  return this.role === 'ADMIN';
 }
 }

@@ -4,7 +4,7 @@ import { Marca } from '../../../models/marca';
 import { MarcaService } from '../../../services/marca.service';
 import { RouterLink } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -21,13 +21,17 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     CommonModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    NgIf,
   ],
   templateUrl: './listarmarca.component.html',
   styleUrl: './listarmarca.component.css'
 })
 export class ListarmarcaComponent implements OnInit{
   marcas: Marca[] = [];
+  
+  role: string = '';
+
 
   displayedColumns: string[] = [
     'codigo',
@@ -71,6 +75,10 @@ export class ListarmarcaComponent implements OnInit{
       });
     }
   );
+  }
+
+  isAdmin() {
+    return this.role === 'ADMIN';
   }
 
  /* deletes(id: number): void {
