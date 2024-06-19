@@ -18,12 +18,18 @@ import { CreaeditareparacionComponent } from './components/reparacion/creaeditar
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { segGuard } from './guard/seguridad.guard';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: '',
         pathMatch: 'full',
+    },
+    {
+        path:'',
+        component: LandingPageComponent
+
     },
     {
         path: 'login',
