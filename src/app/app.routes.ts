@@ -19,6 +19,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { segGuard } from './guard/seguridad.guard';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { Report02Component } from './components/reports/report02/report02.component';
+import { Report03Component } from './components/reports/report03/report03.component';
+import { Report04Component } from './components/reports/report04/report04.component';
+import { Report05Component } from './components/reports/report05/report05.component';
+import { Report06Component } from './components/reports/report06/report06.component';
 
 export const routes: Routes = [
     {
@@ -124,6 +130,17 @@ export const routes: Routes = [
           { path: 'ediciones/:id', component:CreaeditacomentarioComponent },
       ],
       canActivate: [segGuard],
+    },
+    {
+        path:"reportes", component: ReportsComponent,
+        children: [
+            { path: 'reporte02', component: Report02Component },
+            { path: 'reporte03', component: Report03Component },
+            { path: 'reporte04', component: Report04Component },
+            { path: 'reporte05', component: Report05Component },
+            { path: 'reporte06', component: Report06Component },
+        ],
+        canActivate: [segGuard],
     },
     {
         path: 'homes',
