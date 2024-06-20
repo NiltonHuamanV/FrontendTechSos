@@ -3,6 +3,8 @@ import { environment } from '../../environments/envirorment';
 import { ComentarioClienteTaller } from '../models/comentario';
 import { Subject } from 'rxjs/internal/Subject';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Top5TalleresDTO } from '../models/top5TalleresDTO';
 
 const base_url = environment.base
 
@@ -40,6 +42,10 @@ export class ComentarioService {
   }
   eliminar(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+
+  getTop5Talleres():Observable<Top5TalleresDTO[]>{
+    return this.http.get<Top5TalleresDTO[]>(`${this.url}/top5Talleres`);
   }
 
 }

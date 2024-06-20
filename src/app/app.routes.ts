@@ -131,6 +131,7 @@ export const routes: Routes = [
       ],
       canActivate: [segGuard],
     },
+
     {
         path:"reportes", component: ReportsComponent,
         children: [
