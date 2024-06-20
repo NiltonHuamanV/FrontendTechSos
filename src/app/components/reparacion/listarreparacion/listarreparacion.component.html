@@ -1,8 +1,7 @@
 <div class="container" *ngIf="verificar()">
-    <br/>
-    <h2 style="text-align: center">Lista de reparaciones</h2>
-
-
+  <div class="title-container">
+    <h1 class="title">Lista de Reparaciones</h1>
+  </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- Position Column -->
       <ng-container matColumnDef="c1">

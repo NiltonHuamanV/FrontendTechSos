@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Dispositivo } from '../../../models/dispositivo';
 import { Modelo } from '../../../models/modelo';
 import { DispositivoService } from '../../../services/dispositivo.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { ModeloService } from '../../../services/modelo.service';
 @Component({
   selector: 'app-creaeditadispositivo',
@@ -18,7 +18,8 @@ import { ModeloService } from '../../../services/modelo.service';
     MatSelectModule, 
     CommonModule, 
     MatInputModule,
-    MatButtonModule],
+    MatButtonModule,
+    RouterLink],
   templateUrl: './creaeditadispositivo.component.html',
   styleUrl: './creaeditadispositivo.component.css'
 })

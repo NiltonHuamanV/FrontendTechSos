@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Modelo } from '../../../models/modelo';
 import { ModeloService } from '../../../services/modelo.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { Marca } from '../../../models/marca';
 import { MarcaService } from '../../../services/marca.service';
 @Component({
@@ -18,7 +18,8 @@ import { MarcaService } from '../../../services/marca.service';
     MatSelectModule,
     CommonModule,
     MatInputModule,
-    MatButtonModule],
+    MatButtonModule,
+    RouterLink],
   templateUrl: './creaeditamodelo.component.html',
   styleUrl: './creaeditamodelo.component.css'
 })
