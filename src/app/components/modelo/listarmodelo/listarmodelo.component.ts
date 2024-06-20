@@ -7,10 +7,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { LoginService } from '../../../services/login.service';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-listarmodelo',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, RouterLink, NgIf],
+  imports: [MatTableModule, MatButtonModule, RouterLink, NgIf, MatIconModule],
   templateUrl: './listarmodelo.component.html',
   styleUrl: './listarmodelo.component.css',
 })

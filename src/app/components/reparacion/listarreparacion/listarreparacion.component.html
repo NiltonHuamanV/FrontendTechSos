@@ -55,18 +55,18 @@
       <ng-container matColumnDef="modificar">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idReparacion]"
+          <button mat-icon-button color="primary" [routerLink]="['ediciones',element.idReparacion]"
           *ngIf="isAdmin() || isTecnico()">
-            Actualizar
+          <mat-icon> border_color</mat-icon>
           </button>
         </td>
       </ng-container>
       <ng-container matColumnDef="eliminar">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="warn" (click)="deletes(element.idReparacion)"
+          <button mat-icon-button color="warn" (click)="deletes(element.idReparacion)"
           *ngIf="isAdmin() || isTecnico()">
-            Eliminar
+          <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>

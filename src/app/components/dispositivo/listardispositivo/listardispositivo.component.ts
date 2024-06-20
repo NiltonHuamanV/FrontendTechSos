@@ -7,10 +7,11 @@ import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { LoginService } from '../../../services/login.service';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-listardispositivo',
   standalone: true,
-  imports: [MatTableModule,RouterLink,MatButtonModule, NgIf],
+  imports: [MatTableModule,RouterLink,MatButtonModule, NgIf, MatIconModule],
   templateUrl: './listardispositivo.component.html',
   styleUrl: './listardispositivo.component.css'
 })
