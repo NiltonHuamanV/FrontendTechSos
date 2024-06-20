@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { error } from 'node:console';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-listarmarca',
@@ -39,7 +40,9 @@ export class ListarmarcaComponent implements OnInit{
   ];
 
   dataSource:MatTableDataSource<Marca> = new MatTableDataSource();
-  constructor(private mS:MarcaService, private snackbar: MatSnackBar){}
+  constructor(private mS:MarcaService, private snackbar: MatSnackBar,
+    private loginService: LoginService,
+  ){}
 
   ngOnInit(): void {
     this.mS.list().subscribe(data => {
@@ -77,9 +80,19 @@ export class ListarmarcaComponent implements OnInit{
   );
   }
 
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
   isAdmin() {
     return this.role === 'ADMIN';
   }
+
+  isCliente() {
+    return this.role === 'CLIENTE';
+  }
+
 
  /* deletes(id: number): void {
     this.mS.delete(id).subscribe((data) => {

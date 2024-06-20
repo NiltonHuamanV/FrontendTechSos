@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="verificar()">
     <br/>
     <h2 style="text-align: center">Lista de reparaciones</h2>
 
@@ -56,7 +56,8 @@
       <ng-container matColumnDef="modificar">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idReparacion]">
+          <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idReparacion]"
+          *ngIf="isAdmin() || isTecnico()">
             Actualizar
           </button>
         </td>
@@ -64,7 +65,8 @@
       <ng-container matColumnDef="eliminar">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="warn" (click)="deletes(element.idReparacion)">
+          <button mat-raised-button color="warn" (click)="deletes(element.idReparacion)"
+          *ngIf="isAdmin() || isTecnico()">
             Eliminar
           </button>
         </td>

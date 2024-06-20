@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { LoginService } from '../../../services/login.service';
 @Component({
   selector: 'app-listarmodelo',
   standalone: true,
@@ -26,7 +27,9 @@ export class ListarmodeloComponent {
     'eliminar',
   ];
   datasource: MatTableDataSource<Modelo> = new MatTableDataSource();
-  constructor(private mS: ModeloService, private snackBar: MatSnackBar) {}
+  constructor(private mS: ModeloService, private snackBar: MatSnackBar,
+    private loginService: LoginService,
+  ) {}
 
   ngOnInit(): void {
     this.mS.list().subscribe((data) => {
@@ -51,7 +54,13 @@ export class ListarmodeloComponent {
     );
   }
 
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
   isAdmin() {
     return this.role === 'ADMIN';
   }
+  
 }

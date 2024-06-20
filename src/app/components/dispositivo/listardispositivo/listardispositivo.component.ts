@@ -5,10 +5,12 @@ import { Dispositivo } from '../../../models/dispositivo';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import { LoginService } from '../../../services/login.service';
 @Component({
   selector: 'app-listardispositivo',
   standalone: true,
-  imports: [MatTableModule,RouterLink,MatButtonModule],
+  imports: [MatTableModule,RouterLink,MatButtonModule, NgIf],
   templateUrl: './listardispositivo.component.html',
   styleUrl: './listardispositivo.component.css'
 })
@@ -17,8 +19,11 @@ export class ListardispositivoComponent implements OnInit {
   datasource : MatTableDataSource<Dispositivo>= new MatTableDataSource()
   constructor(
     private dS:DispositivoService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private loginService: LoginService,
   ){}
+
+  role: string = '';
 
   ngOnInit(): void {
     this.dS.list().subscribe(data=> {
@@ -27,20 +32,34 @@ export class ListardispositivoComponent implements OnInit {
     this.dS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
     });
-}
-deletes(id: number): void {
-  this.dS.delete(id).subscribe(
-    (data) => {
-      this.dS.list().subscribe((data)=>{
-        this.dS.setList(data)
-      });
-    },
-    (error) => {
-      this.snackBar.open('No fue posible eliminar el registro', 'Cerrar', {
-        duration: 3000 // Duración del mensaje en milisegundos
-      });
-    }
-  );
-}
+  }
+  deletes(id: number): void {
+    this.dS.delete(id).subscribe(
+      (data) => {
+        this.dS.list().subscribe((data)=>{
+          this.dS.setList(data)
+        });
+      },
+      (error) => {
+        this.snackBar.open('No fue posible eliminar el registro', 'Cerrar', {
+          duration: 3000 // Duración del mensaje en milisegundos
+        });
+      }
+    );
+  }
+
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
+  isCliente() {
+    return this.role === 'CLIENTE';
+  }
+
+
+  isAdmin() {
+    return this.role === 'ADMIN';
+  }
 
 }

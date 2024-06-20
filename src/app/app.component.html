@@ -16,24 +16,25 @@
   
   >Marca</button>
   <button mat-button class="reparacion-button" [matMenuTriggerFor]="menuReparacion"
-  *ngIf="isAdmin() || isTecnico()"
+  
   >Reparacion</button>
   <button mat-button class="modelo-button" [matMenuTriggerFor]="menuModelo"
   
   >Modelo</button>
   <button mat-button class="dispositivo-button" [matMenuTriggerFor]="menuDispositivo"
-  *ngIf="isAdmin() || isCliente()"
+  
   >Dispositivo</button>
+
   <button mat-button class="taller-button" [matMenuTriggerFor]="menuTaller"
   
   >Taller</button>
 
   <button mat-button class="dispositivo-taller-button" [matMenuTriggerFor]="menuDispositivoTaller"
-  *ngIf="isAdmin() || isCliente()"
+  
   >Dispositivo_Taller</button>
 
   <button mat-button class="comentario-button" [matMenuTriggerFor]="menuComentario"
-  *ngIf="isAdmin() || isCliente()"
+
   >Comentario</button>
 
   <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
@@ -51,7 +52,7 @@
 
 <mat-menu #menuReparacion="matMenu">
   <button mat-menu-item routerLink="/reparacion">Listar</button>
-  <button mat-menu-item routerLink="/reparacion/insertarreparacion">Registrar</button>
+  <button mat-menu-item routerLink="/reparacion/insertarreparacion" *ngIf="isAdmin() || isTecnico()">Registrar</button>
 </mat-menu>
 
 <mat-menu #menuModelo="matMenu">
@@ -60,7 +61,7 @@
 </mat-menu>
 <mat-menu #menuDispositivo="matMenu">
   <button mat-menu-item routerLink="/dispositivo">Listar</button>
-  <button mat-menu-item routerLink="/dispositivo/insertardispositivo">Registrar</button>
+  <button mat-menu-item routerLink="/dispositivo/insertardispositivo" *ngIf="isAdmin() || isCliente()">Registrar</button>
 </mat-menu>
 
 <mat-menu #menuTaller="matMenu">
@@ -72,12 +73,12 @@
 
 <mat-menu #menuDispositivoTaller="matMenu">
   <button mat-menu-item routerLink="/dispositivotaller">Listar</button>
-  <button mat-menu-item routerLink="/dispositivotaller/insertardispositivotaller">Registrar</button>
+  <button mat-menu-item routerLink="/dispositivotaller/insertardispositivotaller" *ngIf="isAdmin() || isCliente()">Registrar</button>
 </mat-menu>
 
 <mat-menu #menuComentario="matMenu">
   <button mat-menu-item routerLink="/comentarios">Listar</button>
-  <button mat-menu-item routerLink="/comentarios/insertarcomentario">Registrar</button>
+  <button mat-menu-item routerLink="/comentarios/insertarcomentario" *ngIf="isAdmin() || isCliente()">Registrar</button>
 </mat-menu>
 
 <mat-menu #menuSalir="matMenu">

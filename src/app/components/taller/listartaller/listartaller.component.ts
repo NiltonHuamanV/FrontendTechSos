@@ -10,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterLink } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgIf } from '@angular/common';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-listartaller',
@@ -30,9 +31,6 @@ import { NgIf } from '@angular/common';
 
 export class ListartallerComponent implements OnInit {
 
-  
-  role: string = '';
-
 
   displayedColumns: String[] =
   ['codigo',
@@ -45,8 +43,13 @@ export class ListartallerComponent implements OnInit {
 
   dataSource:MatTableDataSource<Taller> = new MatTableDataSource()
 
-  constructor(private tS:TallerService, private snackBar:MatSnackBar) {
+  constructor(private tS:TallerService, private snackBar:MatSnackBar,
+    private loginService: LoginService,
+  ) {
   }
+
+  role: string = '';
+
   ngOnInit(): void {
     this.tS.list().subscribe(data=> {
       this.dataSource = new MatTableDataSource(data)
@@ -70,6 +73,11 @@ deletes(id: number): void {
       });
     }
   );
+}
+
+verificar() {
+  this.role = this.loginService.showRole();
+  return this.loginService.verificar();
 }
 
 isTecnico() {

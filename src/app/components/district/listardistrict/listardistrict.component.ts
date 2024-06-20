@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { District } from '../../../models/district';
 import { DistrictService } from '../../../services/district.service';
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-listardistrict',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, NgIf,],
   templateUrl: './listardistrict.component.html',
   styleUrl: './listardistrict.component.css'
 })
