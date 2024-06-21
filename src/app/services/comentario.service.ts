@@ -5,6 +5,7 @@ import { Subject } from 'rxjs/internal/Subject';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Top5TalleresDTO } from '../models/top5TalleresDTO';
+import { MejoresTalleresDTO } from '../models/mejoresTalleres';
 
 const base_url = environment.base
 
@@ -46,6 +47,10 @@ export class ComentarioService {
 
   getTop5Talleres():Observable<Top5TalleresDTO[]>{
     return this.http.get<Top5TalleresDTO[]>(`${this.url}/top5Talleres`);
+  }
+
+  getMejoresTalleres():Observable<MejoresTalleresDTO[]>{
+    return this.http.get<MejoresTalleresDTO[]>(`${this.url}/mejoresTalleres`);
   }
 
 }

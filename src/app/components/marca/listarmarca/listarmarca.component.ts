@@ -30,7 +30,7 @@ import { LoginService } from '../../../services/login.service';
 })
 export class ListarmarcaComponent implements OnInit{
   marcas: Marca[] = [];
-  
+
   role: string = '';
 
 
@@ -107,6 +107,6 @@ export class ListarmarcaComponent implements OnInit{
       }
     );
   }*/
-  
-  
+
+
 }
