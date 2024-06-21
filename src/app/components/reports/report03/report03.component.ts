@@ -48,8 +48,8 @@ export class Report03Component implements OnInit{
 
     ngOnInit(): void {
       this.dS.getQuantityReport03().subscribe(data => {
-        const talleres = Array.from(new Set(data.map(item => item.nombreTaller))); // Obtener talleres únicos
-        const estados = Array.from(new Set(data.map(item => item.estado))); // Obtener estados únicos
+        const talleres = Array.from(new Set(data.map(item => item.nombreTaller))); // talleres
+        const estados = Array.from(new Set(data.map(item => item.estado))); // estados
   
         this.barChartLabels = talleres; 
   
@@ -59,7 +59,7 @@ export class Report03Component implements OnInit{
             return dato ? dato.cantidadDispositivos : 0;
           }),
           label: estado,
-          backgroundColor: this.getColorForEstado(estado), // Asignar color según el estado
+          backgroundColor: this.getColorForEstado(estado), // color según el estado
           borderWidth: 1
         }));
       });

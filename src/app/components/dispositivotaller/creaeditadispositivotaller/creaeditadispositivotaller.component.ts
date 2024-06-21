@@ -72,7 +72,7 @@ export class CreaeditadispositivotallerComponent implements OnInit{
   if(this.form.valid)
     {
       this.devicetaller.idDispositivoTaller = this.form.value.codigo;
-      this.devicetaller.dispositivo.idDispositivo = this.form.value.dispositivo;
+      this.devicetaller.dispositivo.modelo.nombre = this.form.value.dispositivo;
       this.devicetaller.taller.idTaller = this.form.value.taller;
       
       if (this.edicion) {
@@ -103,7 +103,7 @@ export class CreaeditadispositivotallerComponent implements OnInit{
       this.dtS.listId(this.id).subscribe((data)=> {
         this.form = new FormGroup({
           codigo: new FormControl(data.idDispositivoTaller),
-          dispositivo: new FormControl(data.dispositivo.idDispositivo),
+          dispositivo: new FormControl(data.dispositivo.modelo.nombre),
           taller: new FormControl(data.taller.idTaller),
         })
       })
