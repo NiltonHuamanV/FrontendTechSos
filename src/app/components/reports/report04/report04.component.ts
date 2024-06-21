@@ -16,10 +16,10 @@ export class Report04Component {
     responsive: true,
     scales: {
       x: {
-        stacked: true // Para agrupar las barras por taller
+        //stacked: true 
       },
       y: {
-        stacked: false // Para no apilar las barras en el eje Y
+        stacked: false 
       }
     },
     plugins: {
