@@ -9,8 +9,8 @@
       <mat-form-field class="example-full-width">
         <mat-label>Dispositivo</mat-label>
         <mat-select formControlName="dispositivo">
-          <mat-option *ngFor="let c of listaDispositivos" [value]="c.modelo.nombre">
-            {{c.modelo.nombre}}
+          <mat-option *ngFor="let c of listaDispositivos" [value]="c.idDispositivo">
+            {{c.idDispositivo}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('dispositivo')?.hasError('required')"
