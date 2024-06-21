@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
   mensaje: string = '';
 
   ngOnInit(): void {}
-  
+
   login() {
     let request = new JwtRequest();
     request.username = this.username;

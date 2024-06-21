@@ -28,6 +28,16 @@
       <mat-error *ngIf="form.get('calificacion')?.hasError('required')"
       >La calificación es obligatoria.</mat-error
     >
+
+    <mat-error *ngIf="form.get('calificacion')?.hasError('min')"
+        >La calificación mínima es 0.</mat-error>
+
+      <mat-error *ngIf="form.get('calificacion')?.hasError('max')"
+        >La calificación máxima es 10 .</mat-error>
+
+      <mat-error *ngIf="form.get('calificacion')?.hasError('pattern')">
+        La calificación debe ser un número válido.</mat-error>
+
     </mat-form-field>
 
   <br/>
