@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { SumDispositivosTallerEstadoDTO } from '../models/sumDispositivosTallerEstadoDTO';
 import { SumDispositivosTallerMarcaModeloDTO } from '../models/sumDispositivosTallerMarcaModeloDTO';
+import { CantidadMarcaModeloDefectuosoDTO} from '../models/cantidadMarcaModeloDefectuosoDTO';
 
 const base_url = environment.base
 @Injectable({
@@ -45,5 +46,8 @@ export class DispositivoService {
 
   getQuantityReport04():Observable<SumDispositivosTallerMarcaModeloDTO[]>{
     return this.httpClient.get<SumDispositivosTallerMarcaModeloDTO[]>(`${this.url}/cantidaddispositivostallermarcamodelo`)
+  }
+  getQuantityReporte05():Observable<CantidadMarcaModeloDefectuosoDTO[]>{
+    return this.httpClient.get<CantidadMarcaModeloDefectuosoDTO[]>(`${this.url}/cantidadmarcamodelodefectuosos`)
   }
 }
