@@ -34,6 +34,7 @@ export class Report02Component implements OnInit{
 
    //barChartType: ChartType = 'line';
 
+
    barChartType: ChartType = 'bar';
 
    //barChartType: ChartType = 'polarArea';
