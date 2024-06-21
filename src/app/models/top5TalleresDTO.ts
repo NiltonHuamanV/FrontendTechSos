@@ -1,6 +1,6 @@
 
 export class Top5TalleresDTO{
-  idTaller: Number =0
+  idTaller: number =0
   nombre_taller:string=""
-  promediocalificacion:Number=0
+  promediocalificacion:number=0
 }
