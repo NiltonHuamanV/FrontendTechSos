@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/envirorment';
 import { Dispositivo } from '../models/dispositivo';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { SumDispositivosTallerEstadoDTO } from '../models/sumDispositivosTallerEstadoDTO';
 
 const base_url = environment.base
 @Injectable({
@@ -35,6 +36,10 @@ export class DispositivoService {
   }
   delete(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
+  }
+
+  getQuantityReport03():Observable<SumDispositivosTallerEstadoDTO[]>{
+    return this.httpClient.get<SumDispositivosTallerEstadoDTO[]>(`${this.url}/cantidaddispositivostallerestado`);
   }
 
 }
