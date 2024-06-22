@@ -10,7 +10,7 @@
         <mat-label>Dispositivo</mat-label>
         <mat-select formControlName="dispositivo">
           <mat-option *ngFor="let c of listaDispositivos" [value]="c.idDispositivo">
-            {{c.modelo.nombre}}
+            {{c.idDispositivo}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('dispositivo')?.hasError('required')"
