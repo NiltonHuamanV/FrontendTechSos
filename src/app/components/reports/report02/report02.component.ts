@@ -39,7 +39,7 @@ export class Report02Component implements OnInit {
 
   barChartLabels: string[] = [];
 
-  barChartType: ChartType = 'polarArea';
+  barChartType: ChartType = 'bar';
 
   barChartLegend = true;
   barChartPlugins = [];
@@ -63,18 +63,21 @@ export class Report02Component implements OnInit {
           const dato = data.find(item => item.nombre_taller === taller && item.descripcion === comentario && item.promediocalificacion === calificacion);
           return dato ? dato.promediocalificacion : 0;
         }),
-        backgroundColor: this.getRandomColor(),
+        backgroundColor:[
+          '#00FFF3',
+          '#00E4FF',
+          '#00C9FF',
+          '#00A2FF',
+          '#0083FF',
+          '#0068FF',
+          '#004DFF',
+          '#0013FF',
+        ],
+
         borderWidth: 1,
       }));
     });
   }
 
-  private getRandomColor(): string {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
+
 }
