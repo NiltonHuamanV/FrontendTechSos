@@ -3,6 +3,10 @@ import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { DispositivoService } from '../../../services/dispositivo.service';
 
+interface MarcasModelos {
+  [marcaModelo: string]: { [taller: string]: number };
+}
+
 @Component({
   selector: 'app-report04',
   standalone: true,
@@ -16,7 +20,7 @@ export class Report04Component {
     responsive: true,
     scales: {
       x: {
-        stacked: true // Para agrupar las barras por taller
+        //stacked: true 
       },
       y: {
         stacked: false // Para no apilar las barras en el eje Y
@@ -49,6 +53,33 @@ export class Report04Component {
 
   ngOnInit(): void {
     this.dS.getQuantityReport04().subscribe(data => {
+      const marcasModelos: MarcasModelos = {};
+  
+      // Agrupar datos por marca, modelo y taller
+      data.forEach(item => {
+        const key = `${item.nombreMarca} - ${item.nombreModelo}`;
+        if (!marcasModelos[key]) {
+          marcasModelos[key] = {}; 
+        }
+        marcasModelos[key][item.nombreTaller] = item.cantidadDispositivos;
+      });
+  
+      this.barChartLabels = Object.keys(marcasModelos); 
+  
+      // Generar datos para cada taller
+      const talleres = Array.from(new Set(data.map(item => item.nombreTaller)));
+      this.barChartData = talleres.map(taller => ({
+        label: taller,
+        data: this.barChartLabels.map(label => marcasModelos[label][taller] || 0),
+        backgroundColor: this.getRandomColor(),
+        borderWidth: 1,
+      }));
+    });
+  }
+  
+
+  /*ngOnInit(): void {
+    this.dS.getQuantityReport04().subscribe(data => {
       const marcas = Array.from(new Set(data.map(item => item.nombreMarca)));
       const talleres = Array.from(new Set(data.map(item => item.nombreTaller)));
 
@@ -66,7 +97,7 @@ export class Report04Component {
         borderWidth: 1,
       }));
     });
-  }
+  }*/
 
   private getRandomColor(): string {
     const letters = '0123456789ABCDEF';
