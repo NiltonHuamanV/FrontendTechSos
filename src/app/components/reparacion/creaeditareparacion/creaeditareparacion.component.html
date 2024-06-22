@@ -1,6 +1,7 @@
-<div>
+<div class="container" style="text-align: center">
+  <h2>Registra el dispositivo que llevará a reparación</h2>
     <form [formGroup] = "form" (submit)="aceptar()">
-      
+
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="codigo" readonly>
@@ -9,7 +10,7 @@
       <br/>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Dispositivo</mat-label>
+        <mat-label>Dispositivo en taller</mat-label>
         <mat-select formControlName="dispositivotaller">
           <mat-option *ngFor="let c of listaDispositivos" [value]="c.idDispositivoTaller">
             {{c.idDispositivoTaller}}
@@ -74,11 +75,16 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Estado</mat-label>
-        <textarea  matInput placeholder="Estado" formControlName="estado"></textarea>
+        <select matNativeControl required formControlName="estado">
+          <option value="en proceso">en proceso</option>
+          <option value="pendiente">pendiente</option>
+          <option value="reparado">reparado</option>
+        </select>
+        <!--textarea  matInput placeholder="Estado" formControlName="estado"></!--textarea-->
         <mat-error *ngIf="form.get('estado')?.hasError('required')"
         >El estado es obligatorio.</mat-error>
       </mat-form-field>
-      
+
       <br />
 
       <mat-form-field class="example-full-width">
@@ -86,12 +92,18 @@
         <textarea  matInput placeholder="Costo" formControlName="costo"></textarea>
         <mat-error *ngIf="form.get('costo')?.hasError('required')"
         >El costo es obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('Costo')?.hasError('pattern')"
+        >El Costo debe ser un número válido.</mat-error>
+
       </mat-form-field>
-      
+
       <br />
 
 
-        <button mat-raised-button color="accent"> Aceptar</button>
+        <button mat-raised-button color="primary"> Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/reparacion">
+          Cancelar
+        </button>
 
     </form>
 </div>

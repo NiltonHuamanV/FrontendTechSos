@@ -63,7 +63,12 @@ export class CreaeditareparacionComponent implements OnInit{
       fechafin:['',Validators.required],
       problema:['',Validators.required],
       estado:['',Validators.required],
-      costo:['',Validators.required],
+      costo:['',
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
     });
     this.dtS.list().subscribe((data) => {
       this.listaDispositivos = data;

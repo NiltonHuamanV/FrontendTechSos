@@ -4,12 +4,13 @@ import { Marca } from '../../../models/marca';
 import { MarcaService } from '../../../services/marca.service';
 import { RouterLink } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { error } from 'node:console';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-listarmarca',
@@ -21,7 +22,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     CommonModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    NgIf,
   ],
   templateUrl: './listarmarca.component.html',
   styleUrl: './listarmarca.component.css'
@@ -29,13 +31,18 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class ListarmarcaComponent implements OnInit{
   marcas: Marca[] = [];
 
+  role: string = '';
+
+
   displayedColumns: string[] = [
     'codigo',
     'marca'
   ];
 
   dataSource:MatTableDataSource<Marca> = new MatTableDataSource();
-  constructor(private mS:MarcaService, private snackbar: MatSnackBar){}
+  constructor(private mS:MarcaService, private snackbar: MatSnackBar,
+    private loginService: LoginService,
+  ){}
 
   ngOnInit(): void {
     this.mS.list().subscribe(data => {
@@ -73,6 +80,20 @@ export class ListarmarcaComponent implements OnInit{
   );
   }
 
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
+  isAdmin() {
+    return this.role === 'ADMIN';
+  }
+
+  isCliente() {
+    return this.role === 'CLIENTE';
+  }
+
+
  /* deletes(id: number): void {
     this.mS.delete(id).subscribe((data) => {
         this.mS.list().subscribe((data)=>{
@@ -86,6 +107,6 @@ export class ListarmarcaComponent implements OnInit{
       }
     );
   }*/
-  
-  
+
+
 }

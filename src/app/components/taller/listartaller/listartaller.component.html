@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="verificar()">
   <div class="title-container">
     <h1 class ="title"> Lista de talleres</h1>
   </div>
@@ -33,16 +33,18 @@
         <ng-container matColumnDef="modificar">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idTaller]">
-              Actualizar
+            <button mat-icon-button color="primary" [routerLink]="['ediciones',element.idTaller]"
+            *ngIf="isAdmin() || isTecnico()">
+            <mat-icon> border_color</mat-icon>
             </button>
           </td>
         </ng-container>
         <ng-container matColumnDef="eliminar">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="warn" (click)="deletes(element.idTaller)">
-              Eliminar
+            <button mat-icon-button color="warn" (click)="deletes(element.idTaller)"
+            *ngIf="isAdmin() || isTecnico()">
+            <mat-icon>delete</mat-icon>
             </button>
           </td>
         </ng-container>

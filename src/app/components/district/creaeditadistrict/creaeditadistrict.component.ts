@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { DistrictService } from '../../../services/district.service';
 import { District } from '../../../models/district';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-creaeditadistrict',
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatButtonModule,
     NgIf,
+    RouterLink,
   ],
   templateUrl: './creaeditadistrict.component.html',
   styleUrl: './creaeditadistrict.component.css'

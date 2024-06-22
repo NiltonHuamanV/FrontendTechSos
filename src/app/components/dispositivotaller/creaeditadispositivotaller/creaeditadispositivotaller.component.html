@@ -1,5 +1,5 @@
-<p>creaeditadispositivotaller works!</p>
-<div>
+<div class="container" style="text-align: center">
+  <h2>Registro tu dispositivo al taller que lo arreglará</h2>
     <form [formGroup] = "form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
@@ -29,12 +29,11 @@
         <mat-error *ngIf="form.get('taller')?.hasError('required')"
         >El taller es obligatorio.</mat-error>       
       </mat-form-field>
-
-
-
-      
       <br />
-        <button mat-raised-button color="accent"> Aceptar</button>
+        <button mat-raised-button color="primary"> Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/dispositivotaller">
+          Cancelar
+        </button>
            
     </form>
     </div>

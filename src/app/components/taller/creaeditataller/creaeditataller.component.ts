@@ -100,7 +100,7 @@ export class CreaeditatallerComponent implements OnInit
           this.tS.listId(this.id).subscribe((data) => {
             this.form = new FormGroup({
               codigo: new FormControl(data.idTaller),
-              nombre: new FormControl(data.nombre),
+              taller: new FormControl(data.nombre),
               numerodetelefono: new FormControl(data.numerodetelefono),
               direccion: new FormControl(data.direccion),
               distrito: new FormControl(data.district.idDistrict),

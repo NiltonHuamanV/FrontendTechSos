@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" *ngIf="verificar()">
   <div class="title-container">
-    <h1 class="title">Lista de Modelos</h1>
+    <h1 class="title">Lista de Comentarios a los talleres</h1>
   </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -38,16 +38,18 @@
     <ng-container matColumnDef="modificar">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idmarca]">
-          Actualizar
+        <button mat-icon-button color="primary" [routerLink]="['ediciones',element.idComentario_Cliente_Taller]"
+        *ngIf="isAdmin() || isCliente()">
+        <mat-icon>border_color</mat-icon>
         </button>
       </td>
     </ng-container>
     <ng-container matColumnDef="eliminar">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn" (click)="deletes(element.idComentario_Cliente_Taller)">
-          Eliminar
+        <button mat-icon-button color="warn" (click)="deletes(element.idComentario_Cliente_Taller)"
+        *ngIf="isAdmin() || isCliente()">
+        <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

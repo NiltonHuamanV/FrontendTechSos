@@ -65,7 +65,14 @@ export class CreaeditacomentarioComponent implements OnInit{
      this.form = this.formBuilder.group({
       codigo: [''],
       descripcion: ['', Validators.required],
-      calificacion: ['', Validators.required],
+      calificacion: ['',
+      [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(10),
+        Validators.pattern('^[0-9]*$'),
+      ],
+        ],
       fechaComentario: ['', Validators.required],
       taller: ['', Validators.required],
     });

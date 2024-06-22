@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Marca } from '../../../models/marca';
 import { MarcaService } from '../../../services/marca.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-creaeditamarca',
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
     CommonModule, 
     MatInputModule,
     MatButtonModule,
+    RouterLink,
   ],
   templateUrl: './creaeditamarca.component.html',
   styleUrl: './creaeditamarca.component.css'

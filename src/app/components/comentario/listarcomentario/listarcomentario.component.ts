@@ -9,6 +9,8 @@ import { RouterLink } from '@angular/router';
 import { ComentarioClienteTaller } from '../../../models/comentario';
 import { ComentarioService } from '../../../services/comentario.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgIf } from '@angular/common';
+import { LoginService } from '../../../services/login.service';
 
 
 @Component({
@@ -22,6 +24,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatInputModule,
     MatIconModule,
+    NgIf,
   ],
   templateUrl: './listarcomentario.component.html',
   styleUrl: './listarcomentario.component.css'
@@ -42,8 +45,11 @@ export class ListarcomentarioComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  role: string = '';
 
-  constructor(private cS: ComentarioService, private snackBar:MatSnackBar) {}
+  constructor(private cS: ComentarioService, private snackBar:MatSnackBar,
+    private loginService: LoginService,
+  ) {}
 
   ngOnInit(): void {
     this.cS.list().subscribe(data=> {
@@ -69,6 +75,21 @@ deletes(id: number): void {
     }
   );
 }
+
+verificar() {
+  this.role = this.loginService.showRole();
+  return this.loginService.verificar();
+}
+
+isCliente() {
+  return this.role === 'CLIENTE';
+}
+
+
+isAdmin() {
+  return this.role === 'ADMIN';
+}
+
 }
 
 

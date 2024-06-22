@@ -1,4 +1,5 @@
-<div>
+<div class="container" style="text-align: center">
+  <h2>Registro de Modelo de marcas de celulares</h2>
     <form [formGroup] = "form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
@@ -26,7 +27,10 @@
           </mat-form-field>
           <br/>
         
-        <button mat-raised-button color="accent"> Aceptar</button>
+        <button mat-raised-button color="primary"> Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/modelo">
+          Cancelar
+        </button>
            
     </form>
     </div>

@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/envirorment';
 import { Dispositivo } from '../models/dispositivo';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { SumDispositivosTallerEstadoDTO } from '../models/sumDispositivosTallerEstadoDTO';
+import { SumDispositivosTallerMarcaModeloDTO } from '../models/sumDispositivosTallerMarcaModeloDTO';
+import { CantidadMarcaModeloDefectuosoDTO} from '../models/cantidadMarcaModeloDefectuosoDTO';
 
 const base_url = environment.base
 @Injectable({
@@ -37,4 +40,14 @@ export class DispositivoService {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
 
+  getQuantityReport03():Observable<SumDispositivosTallerEstadoDTO[]>{
+    return this.httpClient.get<SumDispositivosTallerEstadoDTO[]>(`${this.url}/cantidaddispositivostallerestado`);
+  }
+
+  getQuantityReport04():Observable<SumDispositivosTallerMarcaModeloDTO[]>{
+    return this.httpClient.get<SumDispositivosTallerMarcaModeloDTO[]>(`${this.url}/cantidaddispositivostallermarcamodelo`)
+  }
+  getQuantityReporte05():Observable<CantidadMarcaModeloDefectuosoDTO[]>{
+    return this.httpClient.get<CantidadMarcaModeloDefectuosoDTO[]>(`${this.url}/cantidadmarcamodelodefectuosos`)
+  }
 }

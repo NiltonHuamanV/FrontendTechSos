@@ -9,6 +9,8 @@ import { RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgIf } from '@angular/common';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-listarreparacion',
@@ -20,12 +22,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatButtonModule,
     RouterLink,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    NgIf,
   ],
   templateUrl: './listarreparacion.component.html',
   styleUrl: './listarreparacion.component.css'
 })
 export class ListarreparacionComponent implements OnInit{
+
+  role: string = '';
 
   dataSource: MatTableDataSource<Reparacion> = new MatTableDataSource();
 
@@ -42,7 +47,9 @@ export class ListarreparacionComponent implements OnInit{
   ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private rS: ReparacionService, private snackBar: MatSnackBar) {}
+  constructor(private rS: ReparacionService, private snackBar: MatSnackBar,
+    private loginService: LoginService,
+  ) {}
 
   ngOnInit(): void {
     this.rS.list().subscribe((data) => {
@@ -70,4 +77,17 @@ export class ListarreparacionComponent implements OnInit{
     );
   }
 
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
+  isTecnico() {
+    return this.role === 'TECNICO';
+  }
+  
+  
+  isAdmin() {
+    return this.role === 'ADMIN';
+  }
 }

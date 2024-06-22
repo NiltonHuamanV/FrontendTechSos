@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/envirorment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Reparacion } from '../models/reparacion';
 import { HttpClient } from '@angular/common/http';
+import { SumTotalCostoByModeloDTO } from '../models/sumTotalCostoByModeloDTO';
 const base_url = environment.base
 
 @Injectable({
@@ -33,5 +34,8 @@ export class ReparacionService {
   }
   eliminar(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
+  }
+  getQuantityReporte06():Observable<SumTotalCostoByModeloDTO[]>{
+    return this.httpClient.get<SumTotalCostoByModeloDTO[]>(`${this.url}/sumtotalcostopormodelo`)
   }
 }

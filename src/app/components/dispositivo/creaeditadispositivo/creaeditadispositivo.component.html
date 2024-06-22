@@ -1,4 +1,5 @@
-<div>
+<div class="container" style="text-align: center">
+  <h2>Registre su dispositivo defectuoso</h2>
     <form [formGroup] = "form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
@@ -25,7 +26,10 @@
         >Las observaciones son obligatorias.</mat-error>
       </mat-form-field>
       <br />
-        <button mat-raised-button color="accent"> Aceptar</button>
+        <button mat-raised-button color="primary"> Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/dispositivo">
+          Cancelar
+        </button>
            
     </form>
     </div>
