@@ -28,4 +28,9 @@ export class DistrictService {
   {
     return this.listCambio.asObservable();
   }
+   
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
 }
