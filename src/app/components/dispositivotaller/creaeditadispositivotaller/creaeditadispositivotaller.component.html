@@ -10,7 +10,7 @@
         <mat-label>Dispositivo</mat-label>
         <mat-select formControlName="dispositivo">
           <mat-option *ngFor="let c of listaDispositivos" [value]="c.idDispositivo">
-            {{c.idDispositivo}}
+            {{c.modelo.nombre}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('dispositivo')?.hasError('required')"
@@ -31,7 +31,7 @@
       </mat-form-field>
       <br />
         <button mat-raised-button color="primary"> Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/dispositivo">
+        <button mat-raised-button color="warn" routerLink="/dispositivotaller">
           Cancelar
         </button>
            
